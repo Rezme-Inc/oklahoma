@@ -287,22 +287,69 @@ export default function AssessmentEvaluate() {
       case 7:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4904 (h)</h3>
-            <p className="text-sm text-muted-foreground">
-              If, within seven days of the date that the notice described in subsection (g) is provided by the Employer to the applicant or employee, the applicant or employee gives the Employer notice, orally or in writing, of evidence of the inaccuracy of the item or items of Conviction History or any Evidence of Rehabilitation or Other Mitigating Factors, the Employer shall delay any Adverse Action for a reasonable period after receipt of the information and during that time shall reconsider the prospective Adverse Action in light of the information.
-            </p>
+            <h3 className="font-semibold">Candidate Notification Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Copy of the background check report</li>
+                  <li>• Specific conviction(s) under consideration</li>
+                  <li>• Clear instructions for the 7-business-day response window</li>
+                </ul>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Note: Track both the notice send date and response deadline for compliance purposes.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
+                <p className="text-sm text-muted-foreground">
+                  If the decision is to proceed with hiring:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Complete the assessment documentation</li>
+                  <li>• Submit results to Legal department for review</li>
+                  <li>• Submit results to VP of HR for final approval</li>
+                </ul>
+              </div>
+            </div>
           </div>
         );
       case 6:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4910. EMPLOYER RECORDS</h3>
-            <p className="text-sm text-muted-foreground">
-              (a) An Employer shall retain records of employment, application forms, and other pertinent data and records required under this Article, for a period of three years, and shall allow the OLSE access to such records, with appropriate notice and at a mutually agreeable time, to monitor compliance with the requirements of this Article.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              (d) Where an Employer does not maintain or retain adequate records documenting compliance with this Article or does not allow the OLSE reasonable access to such records, it shall be presumed that the Employer did not comply with this Article, absent clear and convincing evidence otherwise.
-            </p>
+            <h3 className="font-semibold">Assessment Summary Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Recommendation Categories</h4>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  <li>• Proceed - Clear to hire without restrictions</li>
+                  <li>• Proceed w/ conditions - Hire with specific conditions or monitoring</li>
+                  <li>• Consider Adverse Action - Potential grounds for not proceeding with hire</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-sm font-medium mb-2">Approval Requirements</h4>
+                <p className="text-sm text-muted-foreground">
+                  All assessment summaries require dual electronic sign-off from:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Human Resources representative</li>
+                  <li>• Legal department representative</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium mb-2">Purpose</h4>
+                <p className="text-sm text-muted-foreground">
+                  This dual approval process ensures consistent decision-making and compliance with Fair Chance Ordinance requirements across all hiring decisions.
+                </p>
+              </div>
+            </div>
           </div>
         );
       case 8:
@@ -409,6 +456,38 @@ export default function AssessmentEvaluate() {
               <li>• Supervision: Paroled Jun 2023; completed all parole obligations May 2025</li>
               <li>• Conduct on Supervision: One curfew violation (Sep 2023) resulted in a formal warning; no sanctions or subsequent incidents</li>
             </ul>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="space-y-4">
+            <h3 className="font-semibold">Position Details</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Role Title</h4>
+                <p className="text-sm text-muted-foreground">
+                  Entry‑Level Sales Associate
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium mb-2">Key Responsibilities</h4>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Prospecting</li>
+                  <li>• Product demonstrations</li>
+                  <li>• CRM data entry</li>
+                  <li>• Quota attainment</li>
+                  <li>• Collaboration with marketing and customer success teams</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium mb-2">Role Limitations</h4>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• No controlled-substance access</li>
+                  <li>• No significant cash custody</li>
+                  <li>• No unsupervised physical goods handling</li>
+                </ul>
+              </div>
+            </div>
           </div>
         );
       case 4:
@@ -1163,19 +1242,36 @@ export default function AssessmentEvaluate() {
 
       case 7:
         return (
-          <div className="space-y-6">
-            <h2 className="text-2xl font-bold">Candidate Notification</h2>
-            <div className="rounded-lg border p-4 bg-muted">
-              <h3 className="font-semibold mb-2">Notice of Intent to Take Adverse Action</h3>
-              <p className="text-sm text-muted-foreground">
-                You must give the candidate 7 days to respond before proceeding with any adverse action. During this time, no hiring decision may be finalized.
-              </p>
+          <div className="space-y-4">
+            <h3 className="font-semibold">Candidate Notification Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Copy of the background check report</li>
+                  <li>• Specific conviction(s) under consideration</li>
+                  <li>• Clear instructions for the 7-business-day response window</li>
+                </ul>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Note: Track both the notice send date and response deadline for compliance purposes.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
+                <p className="text-sm text-muted-foreground">
+                  If the decision is to proceed with hiring:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Complete the assessment documentation</li>
+                  <li>• Submit results to Legal department for review</li>
+                  <li>• Submit results to VP of HR for final approval</li>
+                </ul>
+              </div>
             </div>
-            <Button
-              onClick={() => setShowNoticeDialog(true)}
-            >
-              Preview & Send Notice
-            </Button>
           </div>
         );
 
