@@ -407,13 +407,34 @@ export default function AssessmentEvaluate() {
       case 6:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4910. EMPLOYER RECORDS</h3>
-            <p className="text-sm text-muted-foreground">
-              (a) An Employer shall retain records of employment, application forms, and other pertinent data and records required under this Article, for a period of three years, and shall allow the OLSE access to such records, with appropriate notice and at a mutually agreeable time, to monitor compliance with the requirements of this Article.
-            </p>
-            <p className="text-sm text-muted-foreground">
-              (d) Where an Employer does not maintain or retain adequate records documenting compliance with this Article or does not allow the OLSE reasonable access to such records, it shall be presumed that the Employer did not comply with this Article, absent clear and convincing evidence otherwise.
-            </p>
+            <h3 className="font-semibold">Assessment Summary Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Copy of the background check report</li>
+                  <li>• Specific conviction(s) under consideration</li>
+                  <li>• Clear instructions for the 7-business-day response window</li>
+                </ul>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Note: Track both the notice send date and response deadline for compliance purposes.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
+                <p className="text-sm text-muted-foreground">
+                  If the decision is to proceed with hiring:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Complete the assessment documentation</li>
+                  <li>• Submit results to Legal department for review</li>
+                  <li>• Submit results to VP of HR for final approval</li>
+                </ul>
+              </div>
+            </div>
           </div>
         );
       case 7:
