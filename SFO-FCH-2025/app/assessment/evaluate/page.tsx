@@ -394,22 +394,6 @@ export default function AssessmentEvaluate() {
             </p>
           </div>
         );
-        case 5:
-        return (
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Invite and log mitigating materials during the ≥ 7‑business‑day pre‑adverse window: certificates, sobriety proof, references, completion of supervision, education, NA/AA letters. Weight evidence in line with EEOC factors (training, job history, character refs).
-            </p>
-          </div>
-        );
-        case 4:
-          return (
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (FCO safe‑harbor unless role supervises minors/dependent adults).
-            </p>
-          </div>
-        );
       case 3:
         return (
           <div className="space-y-4">
@@ -424,6 +408,90 @@ export default function AssessmentEvaluate() {
             <p className="text-sm text-muted-foreground mt-4">
               The outcome of the nature-time-nature test is to determine if the offense and surrounding circumstances are so correlated as to negatively impact the candidate's ability to perform the specific role. If the candidate's past criminal history has no strong correlation to the role or our organization, then we may consider moving forward in the hiring process.
             </p>
+          </div>
+        );
+      case 4:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (FCO safe‑harbor unless role supervises minors/dependent adults).
+            </p>
+          </div>
+        );
+      case 5:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Invite and log mitigating materials during the ≥ 7‑business‑day pre‑adverse window: certificates, sobriety proof, references, completion of supervision, education, NA/AA letters. Weight evidence in line with EEOC factors (training, job history, character refs).
+            </p>
+          </div>
+        );
+      case 6:
+        return (
+          <div className="space-y-4">
+            <h3 className="font-semibold">Assessment Summary Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Recommendation Categories</h4>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  <li>• Proceed - Clear to hire without restrictions</li>
+                  <li>• Proceed w/ conditions - Hire with specific conditions or monitoring</li>
+                  <li>• Consider Adverse Action - Potential grounds for not proceeding with hire</li>
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="text-sm font-medium mb-2">Approval Requirements</h4>
+                <p className="text-sm text-muted-foreground">
+                  All assessment summaries require dual electronic sign-off from:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Human Resources representative</li>
+                  <li>• Legal department representative</li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium mb-2">Purpose</h4>
+                <p className="text-sm text-muted-foreground">
+                  This dual approval process ensures consistent decision-making and compliance with Fair Chance Ordinance requirements across all hiring decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      case 7:
+        return (
+          <div className="space-y-4">
+            <h3 className="font-semibold">Candidate Notification Policy</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
+                <p className="text-sm text-muted-foreground mb-2">
+                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  <li>• Copy of the background check report</li>
+                  <li>• Specific conviction(s) under consideration</li>
+                  <li>• Clear instructions for the 7-business-day response window</li>
+                </ul>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Note: Track both the notice send date and response deadline for compliance purposes.
+                </p>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
+                <p className="text-sm text-muted-foreground">
+                  If the decision is to proceed with hiring:
+                </p>
+                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
+                  <li>• Complete the assessment documentation</li>
+                  <li>• Submit results to Legal department for review</li>
+                  <li>• Submit results to VP of HR for final approval</li>
+                </ul>
+              </div>
+            </div>
           </div>
         );
       default:
