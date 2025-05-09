@@ -1241,34 +1241,41 @@ export default function AssessmentEvaluate() {
       case 6:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">Assessment Summary Policy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Copy of the background check report</li>
-                  <li>• Specific conviction(s) under consideration</li>
-                  <li>• Clear instructions for the 7-business-day response window</li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Note: Track both the notice send date and response deadline for compliance purposes.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
-                <p className="text-sm text-muted-foreground">
-                  If the decision is to proceed with hiring:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
-                  <li>• Complete the assessment documentation</li>
-                  <li>• Submit results to Legal department for review</li>
-                  <li>• Submit results to VP of HR for final approval</li>
-                </ul>
-              </div>
+            <h3 className="font-semibold">Assessment Summary</h3>
+            <div className="rounded-lg border p-4">
+              <h4 className="font-semibold mb-2">Job-relatedness</h4>
+              <p>{jobRelation.isRelated ? "Directly related" : "Not directly related"}</p>
+              {jobRelation.isRelated && (
+                <>
+                  <p className="text-sm text-muted-foreground mt-2">Related duties:</p>
+                  <ul className="list-disc pl-5">
+                    {jobRelation.duties.map(duty => (
+                      <li key={duty}>{duty}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+            </div>
+            <div className="rounded-lg border p-4">
+              <h4 className="font-semibold mb-2">Time Elapsed</h4>
+              <p>{timeElapsed.replace("-", " to ")}</p>
+            </div>
+            <div className="rounded-lg border p-4">
+              <h4 className="font-semibold mb-2">Rehabilitation Evidence</h4>
+              <p>{rehabilitation.hasEvidence ? "Evidence provided" : "No evidence provided"}</p>
+              {rehabilitation.notes && (
+                <p className="text-sm text-muted-foreground mt-2">{rehabilitation.notes}</p>
+              )}
+            </div>
+            <div className="flex items-start space-x-3 mt-6">
+              <Checkbox
+                id="certification"
+                checked={certificationChecked}
+                onCheckedChange={(checked) => setCertificationChecked(checked as boolean)}
+              />
+              <Label htmlFor="certification" className="text-sm">
+                I certify that this decision complies with the Fair Chance Ordinance and is based solely on legally permissible information.
+              </Label>
             </div>
           </div>
         );
