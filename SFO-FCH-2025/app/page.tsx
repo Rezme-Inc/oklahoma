@@ -12,7 +12,7 @@ export default function Home() {
     <div className="min-h-screen bg-background p-8">
       <div className="mx-auto max-w-7xl space-y-8">
         <h1 className="text-4xl font-bold text-foreground">
-          Fair Chance Hiring Compliance Platform
+          San Francisco Fair Chance Hiring Compliance Platform Demo
         </h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-2">
           {/* Legal Overview Panel */}
@@ -20,7 +20,7 @@ export default function Home() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Shield className="h-5 w-5" />
-                Legal Overview
+                San Francisco Fair Chance Ordinance Legal Overview
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -41,7 +41,7 @@ export default function Home() {
                 className="w-full" 
                 onClick={() => router.push("/ordinance")}
               >
-                View Full Ordinance
+                View Full San Francisco Fair CHance Ordinance
               </Button>
             </CardContent>
           </Card>
@@ -49,7 +49,7 @@ export default function Home() {
           {/* Assessment Launch Panel */}
           <Card className="col-span-1">
             <CardHeader>
-              <CardTitle>Launch Assessment</CardTitle>
+              <CardTitle>Launch Assessment Demo</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
@@ -65,7 +65,7 @@ export default function Home() {
                 className="w-full"
                 onClick={() => router.push("/assessment")}
               >
-                Begin New Assessment
+                Begin New Assessment Demo
               </Button>
             </CardContent>
           </Card>
@@ -73,7 +73,7 @@ export default function Home() {
         {/* New Candidate Portal Card */}
         <Card className="mt-8">
           <CardHeader>
-            <CardTitle>Candidate Portal "The Restorative Record"</CardTitle>
+            <CardTitle>Candidate Portal Demo: "The Restorative Record"</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <p className="text-muted-foreground">
@@ -89,7 +89,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Go to The Restorative Record
+                Demo The Restorative Record
               </a>
             </Button>
           </CardContent>

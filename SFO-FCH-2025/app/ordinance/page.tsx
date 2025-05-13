@@ -22,7 +22,7 @@ export default function OrdinancePage() {
 
         <Card className="p-8">
           <div className="prose prose-slate dark:prose-invert max-w-none">
-            <h1 className="text-3xl font-bold mb-6">Fair Chance Ordinance</h1>
+            <h1 className="text-3xl font-bold mb-6"> San Francisco Fair Chance Ordinance</h1>
             
             <p className="mb-6">
               Employers are required to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information.
