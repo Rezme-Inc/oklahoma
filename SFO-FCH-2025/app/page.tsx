@@ -25,7 +25,7 @@ export default function Home() {
             </CardHeader>
             <CardContent className="space-y-4">
               <p className="text-muted-foreground">
-                San Francisco's Fair Chance Ordinance promotes equitable hiring practices by regulating how employers use arrest and conviction records in employment decisions.
+                San Francisco's Fair Chance Ordinance promotes compliant hiring practices by regulating how employers use arrest and conviction records in employment decisions.
               </p>
               <div className="space-y-2">
                 <h3 className="font-semibold">Key Requirements:</h3>
@@ -41,7 +41,7 @@ export default function Home() {
                 className="w-full" 
                 onClick={() => router.push("/ordinance")}
               >
-                View Full San Francisco Fair CHance Ordinance
+                View Full San Francisco Fair Chance Ordinance
               </Button>
             </CardContent>
           </Card>
