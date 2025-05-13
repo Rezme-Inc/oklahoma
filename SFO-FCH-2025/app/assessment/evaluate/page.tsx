@@ -14,12 +14,18 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, ArrowRight, Check, FileText, Info, Send, Edit } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Step {
   id: number;
   title: string;
   completed: boolean;
+}
+
+interface RequiredDocument {
+  type: "jobDescription" | "backgroundCheck" | "restorativeRecord";
+  file: File | null;
+  notes: string;
 }
 
 export default function AssessmentEvaluate() {
@@ -114,6 +120,38 @@ export default function AssessmentEvaluate() {
   const [showCompleteModal, setShowCompleteModal] = useState(false);
 
   const [showWOTCCongratsModal, setShowWOTCCongratsModal] = useState(false);
+
+  const [documents, setDocuments] = useState<Record<string, RequiredDocument>>({
+    jobDescription: { type: "jobDescription", file: null, notes: "" },
+    backgroundCheck: { type: "backgroundCheck", file: null, notes: "" },
+    restorativeRecord: { type: "restorativeRecord", file: null, notes: "" },
+  });
+
+  useEffect(() => {
+    setDocuments({
+      jobDescription: {
+        type: "jobDescription",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Entry Level Sales Associate Job Description"
+        ], "Entry_Level_Sales_Associate_Job_Description.pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+      backgroundCheck: {
+        type: "backgroundCheck",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Background Check Summary Jacobi Iverson"
+        ], "Background_Check_Summary_Jacobi_Iverson.pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+      restorativeRecord: {
+        type: "restorativeRecord",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Jacobi Iverson Restorative Record"
+        ], "Jacobi Iverson Restorative Record (0) (1).pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+    });
+  }, []);
 
   const handleStepClick = (stepId: number) => {
     const previousStepsCompleted = steps

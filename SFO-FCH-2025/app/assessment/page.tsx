@@ -9,7 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, FileText, Upload, Phone, MessageSquare, Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface RequiredDocument {
@@ -23,25 +23,47 @@ interface ContactOption {
   selected: boolean;
 }
 
-const preloadJobDescription = new File(["Sample content for Entry Level Sales Associate Job Description"], "Entry_Level_Sales_Associate_Job_Description.pdf", { type: "application/pdf" });
-const preloadBackgroundCheck = new File(["Sample content for Background Check Summary Jacobi Iverson"], "Background_Check_Summary_Jacobi_Iverson.pdf", { type: "application/pdf" });
-const preloadRestorativeRecord = new File(["Sample content for Jacobi Iverson Restorative Record"], "Jacobi Iverson Restorative Record (0) (1).pdf", { type: "application/pdf" });
-
 export default function AssessmentIntake() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [documents, setDocuments] = useState<Record<string, RequiredDocument>>({
-    jobDescription: { type: "jobDescription", file: preloadJobDescription, notes: "" },
-    backgroundCheck: { type: "backgroundCheck", file: preloadBackgroundCheck, notes: "" },
-    restorativeRecord: { type: "restorativeRecord", file: preloadRestorativeRecord, notes: "" },
+    jobDescription: { type: "jobDescription", file: null, notes: "" },
+    backgroundCheck: { type: "backgroundCheck", file: null, notes: "" },
+    restorativeRecord: { type: "restorativeRecord", file: null, notes: "" },
   });
   const [contactOptions, setContactOptions] = useState<ContactOption[]>([
     { id: "call", selected: false },
     { id: "message", selected: false },
     { id: "request", selected: false },
   ]);
+
+  useEffect(() => {
+    setDocuments({
+      jobDescription: {
+        type: "jobDescription",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Entry Level Sales Associate Job Description"
+        ], "Entry_Level_Sales_Associate_Job_Description.pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+      backgroundCheck: {
+        type: "backgroundCheck",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Background Check Summary Jacobi Iverson"
+        ], "Background_Check_Summary_Jacobi_Iverson.pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+      restorativeRecord: {
+        type: "restorativeRecord",
+        file: typeof window !== "undefined" ? new File([
+          "Sample content for Jacobi Iverson Restorative Record"
+        ], "Jacobi Iverson Restorative Record (0) (1).pdf", { type: "application/pdf" }) : null,
+        notes: "",
+      },
+    });
+  }, []);
 
   const handleFileChange = (type: keyof typeof documents) => (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
