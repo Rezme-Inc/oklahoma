@@ -85,7 +85,7 @@ export default function Home() {
               variant="default"
             >
               <a
-                href="https://restorativerecord.ilr.cornell.edu/"
+                href="https://cornell.restorativerecord.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >

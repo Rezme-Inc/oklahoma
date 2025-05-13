@@ -477,7 +477,7 @@ export default function AssessmentEvaluate() {
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
               Candidate's initial Restorative Record can be accessed at: 
-              <a href="https://restorativerecord.ilr.cornell.edu/restorative-record/4d336397-9a99-4abf-8855-a59bc99485ee" target="_blank" rel="noopener noreferrer">https://restorativerecord.ilr.cornell.edu/restorative-record/4d336397-9a99-4abf-8855-a59bc99485ee</a>
+              <a href="https://cornell.restorativerecord.com/restorative-record/98ab893c-2377-4f3b-9ee2-8fd898da22c4" target="_blank" rel="noopener noreferrer">https://cornell.restorativerecord.com/restorative-record/98ab893c-2377-4f3b-9ee2-8fd898da22c4</a>
             </p>
           </div>
         );
