@@ -111,6 +111,10 @@ export default function AssessmentEvaluate() {
   });
   const [isEditingFinalNotice, setIsEditingFinalNotice] = useState(false);
 
+  const [showCompleteModal, setShowCompleteModal] = useState(false);
+
+  const [showWOTCCongratsModal, setShowWOTCCongratsModal] = useState(false);
+
   const handleStepClick = (stepId: number) => {
     const previousStepsCompleted = steps
       .filter(step => step.id < stepId)
@@ -194,7 +198,7 @@ export default function AssessmentEvaluate() {
       title: "Forms Signed and Sent",
       description: "The WOTC forms have been signed and sent for review.",
     });
-    router.push("/");
+    setShowWOTCCongratsModal(true);
   };
 
   const getLegalGuidance = () => {
@@ -284,6 +288,15 @@ export default function AssessmentEvaluate() {
             </div>
           </div>
         );
+      case 7:
+        return (
+          <div className="space-y-4">
+            <h3 className="font-semibold">SEC. 4904 (h)</h3>
+            <p className="text-sm text-muted-foreground">
+              If, within seven days of the date that the notice described in subsection (g) is provided by the Employer to the applicant or employee, the applicant or employee gives the Employer notice, orally or in writing, of evidence of the inaccuracy of the item or items of Conviction History or any Evidence of Rehabilitation or Other Mitigating Factors, the Employer shall delay any Adverse Action for a reasonable period after receipt of the information and during that time shall reconsider the prospective Adverse Action in light of the information.
+            </p>
+          </div>
+        );
       case 6:
         return (
           <div className="space-y-4">
@@ -294,40 +307,6 @@ export default function AssessmentEvaluate() {
             <p className="text-sm text-muted-foreground">
               (d) Where an Employer does not maintain or retain adequate records documenting compliance with this Article or does not allow the OLSE reasonable access to such records, it shall be presumed that the Employer did not comply with this Article, absent clear and convincing evidence otherwise.
             </p>
-          </div>
-        );
-      case 7:
-        return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Candidate Notification Policy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Copy of the background check report</li>
-                  <li>• Specific conviction(s) under consideration</li>
-                  <li>• Clear instructions for the 7-business-day response window</li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Note: Track both the notice send date and response deadline for compliance purposes.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
-                <p className="text-sm text-muted-foreground">
-                  If the decision is to proceed with hiring:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
-                  <li>• Complete the assessment documentation</li>
-                  <li>• Submit results to Legal department for review</li>
-                  <li>• Submit results to VP of HR for final approval</li>
-                </ul>
-              </div>
-            </div>
           </div>
         );
       case 8:
@@ -372,6 +351,46 @@ export default function AssessmentEvaluate() {
             </p>
           </div>
         );
+        case 5:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Invite and log mitigating materials during the ≥ 7‑business‑day pre‑adverse window: certificates, sobriety proof, references, completion of supervision, education, NA/AA letters. Weight evidence in line with EEOC factors (training, job history, character refs).
+            </p>
+          </div>
+        );
+        case 6:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+            Pursuant to the San Francisco Fair Chance Ordinance, we consider for employment qualified applicants with arrest and conviction records.
+            </p>
+          </div>
+        );
+        case 7:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+            Before taking adverse action such as failing/refusing to hire, discharging, or not promoting an individual based on a conviction history or unresolved arrest, we give the candidate an opportunity to present evidence that the information is inaccurate, that they have been rehabilitated, or other mitigating factors.
+            </p>
+          </div>
+        );
+        case 8:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+            We are committed to fair hiring practices and fully adheres to the requirements set forth by the San Francisco Office of Labor Standards Enforcement (OLSE) under the Fair Chance Ordinance (FCO). This includes providing applicants with automated notice of their right to file a complaint with the OLSE if they believe we are not in compliance with the law.
+            </p>
+          </div>
+        );
+        case 4:
+          return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (FCO safe‑harbor unless role supervises minors/dependent adults).
+            </p>
+          </div>
+        );
       case 3:
         return (
           <div className="space-y-4">
@@ -386,89 +405,6 @@ export default function AssessmentEvaluate() {
             <p className="text-sm text-muted-foreground mt-4">
               The outcome of the nature-time-nature test is to determine if the offense and surrounding circumstances are so correlated as to negatively impact the candidate's ability to perform the specific role. If the candidate's past criminal history has no strong correlation to the role or our organization, then we may consider moving forward in the hiring process.
             </p>
-          </div>
-        );
-      case 4:
-        return (
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (FCO safe‑harbor unless role supervises minors/dependent adults).
-            </p>
-          </div>
-        );
-      case 5:
-        return (
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Invite and log mitigating materials during the ≥ 7‑business‑day pre‑adverse window: certificates, sobriety proof, references, completion of supervision, education, NA/AA letters. Weight evidence in line with EEOC factors (training, job history, character refs).
-            </p>
-          </div>
-        );
-      case 6:
-        return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Assessment Summary Policy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Copy of the background check report</li>
-                  <li>• Specific conviction(s) under consideration</li>
-                  <li>• Clear instructions for the 7-business-day response window</li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Note: Track both the notice send date and response deadline for compliance purposes.
-                </p>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
-                <p className="text-sm text-muted-foreground">
-                  If the decision is to proceed with hiring:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
-                  <li>• Complete the assessment documentation</li>
-                  <li>• Submit results to Legal department for review</li>
-                  <li>• Submit results to VP of HR for final approval</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        );
-      case 7:
-        return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Candidate Notification Policy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Copy of the background check report</li>
-                  <li>• Specific conviction(s) under consideration</li>
-                  <li>• Clear instructions for the 7-business-day response window</li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Note: Track both the notice send date and response deadline for compliance purposes.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
-                <p className="text-sm text-muted-foreground">
-                  If the decision is to proceed with hiring:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
-                  <li>• Complete the assessment documentation</li>
-                  <li>• Submit results to Legal department for review</li>
-                  <li>• Submit results to VP of HR for final approval</li>
-                </ul>
-              </div>
-            </div>
           </div>
         );
       default:
@@ -490,7 +426,37 @@ export default function AssessmentEvaluate() {
             </p>
           </div>
         );
-      case 2:
+        case 7:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Candidate will receive notice of decision and can be contacted via conversational agent or messaging through the secure Restorative Record platform.
+            </p>
+          </div>
+        );
+        case 6:
+        return (
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Candidate's initial Restorative Record can be accessed at: 
+              <a href="https://restorativerecord.ilr.cornell.edu/restorative-record/4d336397-9a99-4abf-8855-a59bc99485ee" target="_blank" rel="noopener noreferrer">https://restorativerecord.ilr.cornell.edu/restorative-record/4d336397-9a99-4abf-8855-a59bc99485ee</a>
+            </p>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="space-y-4">
+            <h3 className="font-semibold">Job Duties & Responsibilities</h3>
+            <ul className="text-sm text-muted-foreground space-y-2">
+              <li>• Prospect and qualify leads through cold calls, email outreach, and inbound inquiries</li>
+              <li>• Conduct virtual or in-person product demonstrations and communicate clear value propositions</li>
+              <li>• Log all interactions and sales activities in the company's CRM platform, ensuring accurate and up-to-date
+              pipeline data</li>
+              <li>• Collaborate cross-functionally with marketing and customer success to support a cohesive customer journey</li>
+            </ul>
+          </div>
+        );
+        case 2:
         return (
           <div className="space-y-4">
             <h3 className="font-semibold">Nature & Circumstances of the Offense</h3>
@@ -501,38 +467,6 @@ export default function AssessmentEvaluate() {
               <li>• Supervision: Paroled Jun 2023; completed all parole obligations May 2025</li>
               <li>• Conduct on Supervision: One curfew violation (Sep 2023) resulted in a formal warning; no sanctions or subsequent incidents</li>
             </ul>
-          </div>
-        );
-      case 3:
-        return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Position Details</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Role Title</h4>
-                <p className="text-sm text-muted-foreground">
-                  Entry‑Level Sales Associate
-                </p>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium mb-2">Key Responsibilities</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Prospecting</li>
-                  <li>• Product demonstrations</li>
-                  <li>• CRM data entry</li>
-                  <li>• Quota attainment</li>
-                  <li>• Collaboration with marketing and customer success teams</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-sm font-medium mb-2">Role Limitations</h4>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• No controlled-substance access</li>
-                  <li>• No significant cash custody</li>
-                  <li>• No unsupervised physical goods handling</li>
-                </ul>
-              </div>
-            </div>
           </div>
         );
       case 4:
@@ -599,7 +533,7 @@ export default function AssessmentEvaluate() {
       default:
         return (
           <div className="text-sm text-muted-foreground">
-            Select a step to view candidate context.
+            The candidate holds a Certificate of Rehabilitation—a court-issued order affirming that an individual convicted of a felony and previously incarcerated in state or local prison has demonstrated rehabilitation under the law.
           </div>
         );
     }
@@ -1240,78 +1174,66 @@ export default function AssessmentEvaluate() {
 
       case 6:
         return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Assessment Summary</h3>
-            <div className="rounded-lg border p-4">
-              <h4 className="font-semibold mb-2">Job-relatedness</h4>
-              <p>{jobRelation.isRelated ? "Directly related" : "Not directly related"}</p>
-              {jobRelation.isRelated && (
-                <>
-                  <p className="text-sm text-muted-foreground mt-2">Related duties:</p>
-                  <ul className="list-disc pl-5">
-                    {jobRelation.duties.map(duty => (
-                      <li key={duty}>{duty}</li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
-            <div className="rounded-lg border p-4">
-              <h4 className="font-semibold mb-2">Time Elapsed</h4>
-              <p>{timeElapsed.replace("-", " to ")}</p>
-            </div>
-            <div className="rounded-lg border p-4">
-              <h4 className="font-semibold mb-2">Rehabilitation Evidence</h4>
-              <p>{rehabilitation.hasEvidence ? "Evidence provided" : "No evidence provided"}</p>
-              {rehabilitation.notes && (
-                <p className="text-sm text-muted-foreground mt-2">{rehabilitation.notes}</p>
-              )}
-            </div>
-            <div className="flex items-start space-x-3 mt-6">
-              <Checkbox
-                id="certification"
-                checked={certificationChecked}
-                onCheckedChange={(checked) => setCertificationChecked(checked as boolean)}
-              />
-              <Label htmlFor="certification" className="text-sm">
-                I certify that this decision complies with the Fair Chance Ordinance and is based solely on legally permissible information.
-              </Label>
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold">Assessment Summary</h2>
+            <div className="space-y-4">
+              <div className="rounded-lg border p-4">
+                <h3 className="font-semibold mb-2">Job-relatedness</h3>
+                <p>{jobRelation.isRelated ? "Directly related" : "Not directly related"}</p>
+                {jobRelation.isRelated && (
+                  <>
+                    <p className="text-sm text-muted-foreground mt-2">Related duties:</p>
+                    <ul className="list-disc pl-5">
+                      {jobRelation.duties.map(duty => (
+                        <li key={duty}>{duty}</li>
+                      ))}
+                    </ul>
+                  </>
+                )}
+              </div>
+
+              <div className="rounded-lg border p-4">
+                <h3 className="font-semibold mb-2">Time Elapsed</h3>
+                <p>{timeElapsed.replace("-", " to ")}</p>
+              </div>
+
+              <div className="rounded-lg border p-4">
+                <h3 className="font-semibold mb-2">Rehabilitation Evidence</h3>
+                <p>{rehabilitation.hasEvidence ? "Evidence provided" : "No evidence provided"}</p>
+                {rehabilitation.notes && (
+                  <p className="text-sm text-muted-foreground mt-2">{rehabilitation.notes}</p>
+                )}
+              </div>
+
+              <div className="flex items-start space-x-3 mt-6">
+                <Checkbox
+                  id="certification"
+                  checked={certificationChecked}
+                  onCheckedChange={(checked) => setCertificationChecked(checked as boolean)}
+                />
+                <Label htmlFor="certification" className="text-sm">
+                  I certify that this decision complies with the Fair Chance Ordinance and is based solely on legally permissible information.
+                </Label>
+              </div>
             </div>
           </div>
         );
 
       case 7:
         return (
-          <div className="space-y-4">
-            <h3 className="font-semibold">Candidate Notification Policy</h3>
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium mb-2">Tentative Denial Process</h4>
-                <p className="text-sm text-muted-foreground mb-2">
-                  If proceeding with a tentative denial, the Pre-Adverse Action Notice must include:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1">
-                  <li>• Copy of the background check report</li>
-                  <li>• Specific conviction(s) under consideration</li>
-                  <li>• Clear instructions for the 7-business-day response window</li>
-                </ul>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Note: Track both the notice send date and response deadline for compliance purposes.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium mb-2">Hiring Decision Process</h4>
-                <p className="text-sm text-muted-foreground">
-                  If the decision is to proceed with hiring:
-                </p>
-                <ul className="text-sm text-muted-foreground space-y-1 mt-2">
-                  <li>• Complete the assessment documentation</li>
-                  <li>• Submit results to Legal department for review</li>
-                  <li>• Submit results to VP of HR for final approval</li>
-                </ul>
-              </div>
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold">Candidate Notification</h2>
+            <div className="rounded-lg border p-4 bg-muted">
+              <h3 className="font-semibold mb-2">Notice of Intent to Take Adverse Action</h3>
+              <p className="text-sm text-muted-foreground">
+                You must give the candidate 7 days to respond before proceeding with any adverse action. During this time, no hiring decision may be finalized.
+              </p>
             </div>
+            <Button
+              onClick={() => setShowNoticeDialog(true)}
+            >
+              Preview & Send Notice
+            </Button>
           </div>
         );
 
@@ -1446,20 +1368,22 @@ export default function AssessmentEvaluate() {
                 >
                   Previous
                 </Button>
-                <Button
-                  onClick={currentStep === 8 ? handleComplete : handleNext}
-                  disabled={
-                    (currentStep === 1 && !hasConditionalOffer) ||
-                    (currentStep === 6 && !certificationChecked)
-                  }
-                >
-                  {currentStep === 8 ? "Complete" : (
-                    <>
-                      Next
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </>
-                  )}
-                </Button>
+                {currentStep !== 8 && (
+                  <Button
+                    onClick={currentStep === 8 ? handleComplete : handleNext}
+                    disabled={
+                      (currentStep === 1 && !hasConditionalOffer) ||
+                      (currentStep === 6 && !certificationChecked)
+                    }
+                  >
+                    {currentStep === 8 ? "Complete" : (
+                      <>
+                        Next
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                )}
               </div>
             </Card>
 
@@ -1594,7 +1518,7 @@ export default function AssessmentEvaluate() {
                 description: "The final notice has been sent to the candidate.",
               });
               setShowFinalNoticeDialog(false);
-              router.push("/");
+              setShowCompleteModal(true);
             }}>
               <Send className="mr-2 h-4 w-4" />
               Send Final Notice
@@ -1768,6 +1692,38 @@ export default function AssessmentEvaluate() {
           <div className="flex justify-end gap-3">
             <Button onClick={handleContinueToSigning}>
               Continue to Signing Forms
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showCompleteModal} onOpenChange={setShowCompleteModal}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Assessment Complete</DialogTitle>
+            <DialogDescription>
+              You have completed the Fair Chance assessment process. Click Complete to finalize.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end">
+            <Button onClick={() => { setShowCompleteModal(false); handleComplete(); }}>
+              Complete
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showWOTCCongratsModal} onOpenChange={setShowWOTCCongratsModal}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Congratulations!</DialogTitle>
+            <DialogDescription>
+              Through our integration with your HRIS, we will track your employee's hours and eligibility for the maximum tax credit return. All compliance steps have been recorded and securely stored for audit purposes for three years.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex justify-end">
+            <Button onClick={() => { setShowWOTCCongratsModal(false); router.push("/"); }}>
+              Close
             </Button>
           </div>
         </DialogContent>

@@ -10,6 +10,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, FileText, Upload, Phone, MessageSquare, Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 interface RequiredDocument {
   type: "jobDescription" | "backgroundCheck" | "restorativeRecord";
@@ -22,15 +23,19 @@ interface ContactOption {
   selected: boolean;
 }
 
+const preloadJobDescription = new File(["Sample content for Entry Level Sales Associate Job Description"], "Entry_Level_Sales_Associate_Job_Description.pdf", { type: "application/pdf" });
+const preloadBackgroundCheck = new File(["Sample content for Background Check Summary Jacobi Iverson"], "Background_Check_Summary_Jacobi_Iverson.pdf", { type: "application/pdf" });
+const preloadRestorativeRecord = new File(["Sample content for Jacobi Iverson Restorative Record"], "Jacobi Iverson Restorative Record (0) (1).pdf", { type: "application/pdf" });
+
 export default function AssessmentIntake() {
   const router = useRouter();
   const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [documents, setDocuments] = useState<Record<string, RequiredDocument>>({
-    jobDescription: { type: "jobDescription", file: null, notes: "" },
-    backgroundCheck: { type: "backgroundCheck", file: null, notes: "" },
-    restorativeRecord: { type: "restorativeRecord", file: null, notes: "" },
+    jobDescription: { type: "jobDescription", file: preloadJobDescription, notes: "" },
+    backgroundCheck: { type: "backgroundCheck", file: preloadBackgroundCheck, notes: "" },
+    restorativeRecord: { type: "restorativeRecord", file: preloadRestorativeRecord, notes: "" },
   });
   const [contactOptions, setContactOptions] = useState<ContactOption[]>([
     { id: "call", selected: false },
@@ -121,7 +126,7 @@ export default function AssessmentIntake() {
               </h2>
 
               <div className="space-y-8">
-                {/* Job Description Upload */}
+                {/* Job Description Upload (read-only) */}
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="jobDescription" className="text-lg font-medium">
@@ -131,40 +136,19 @@ export default function AssessmentIntake() {
                       Attach the job posting or internal job description for this role. This will help determine whether the offense is job-related as required by San Francisco's Fair Chance Ordinance.
                     </p>
                   </div>
-                  
                   <div className="grid gap-4">
-                    <div 
-                      className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary/50 transition-colors"
-                      onClick={() => document.getElementById('jobDescription')?.click()}
-                    >
-                      <Input
-                        id="jobDescription"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileChange("jobDescription")}
-                        accept=".pdf,.docx,.jpg,.png"
-                      />
+                    <div className="border-2 border-dashed rounded-lg p-6 text-center bg-muted">
                       <div className="flex flex-col items-center gap-2">
                         <Upload className="h-8 w-8 text-muted-foreground" />
-                        <p className="text-sm text-muted-foreground">
-                          {documents.jobDescription.file 
-                            ? documents.jobDescription.file.name 
-                            : "Click to upload or drag and drop"}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          PDF, DOCX, JPG, PNG (max 10MB)
+                        <p className="text-sm text-muted-foreground font-semibold">
+                          {documents.jobDescription.file ? documents.jobDescription.file.name : "No file preloaded"}
                         </p>
                       </div>
                     </div>
-                    <Textarea
-                      placeholder="Optional notes about this document"
-                      value={documents.jobDescription.notes}
-                      onChange={handleNotesChange("jobDescription")}
-                    />
                   </div>
                 </div>
 
-                {/* Background Check Upload */}
+                {/* Background Check Upload (read-only) */}
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="backgroundCheck" className="text-lg font-medium">
@@ -174,40 +158,19 @@ export default function AssessmentIntake() {
                       Upload the candidate's background check results that triggered this individualized assessment. The system will ensure only permissible data is considered.
                     </p>
                   </div>
-                  
                   <div className="grid gap-4">
-                    <div 
-                      className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary/50 transition-colors"
-                      onClick={() => document.getElementById('backgroundCheck')?.click()}
-                    >
-                      <Input
-                        id="backgroundCheck"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileChange("backgroundCheck")}
-                        accept=".pdf,.docx,.jpg,.png"
-                      />
+                    <div className="border-2 border-dashed rounded-lg p-6 text-center bg-muted">
                       <div className="flex flex-col items-center gap-2">
                         <Upload className="h-8 w-8 text-muted-foreground" />
-                        <p className="text-sm text-muted-foreground">
-                          {documents.backgroundCheck.file 
-                            ? documents.backgroundCheck.file.name 
-                            : "Click to upload or drag and drop"}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          PDF, DOCX, JPG, PNG (max 10MB)
+                        <p className="text-sm text-muted-foreground font-semibold">
+                          {documents.backgroundCheck.file ? documents.backgroundCheck.file.name : "No file preloaded"}
                         </p>
                       </div>
                     </div>
-                    <Textarea
-                      placeholder="Optional notes about this document"
-                      value={documents.backgroundCheck.notes}
-                      onChange={handleNotesChange("backgroundCheck")}
-                    />
                   </div>
                 </div>
 
-                {/* Restorative Record Upload */}
+                {/* Restorative Record Upload (read-only) */}
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="restorativeRecord" className="text-lg font-medium">
@@ -217,93 +180,72 @@ export default function AssessmentIntake() {
                       If the candidate submitted documentation regarding rehabilitation, mitigating factors, or inaccuracies, upload it here. This is required before making any adverse decision.
                     </p>
                   </div>
-                  
                   <div className="grid gap-4">
-                    <div 
-                      className="border-2 border-dashed rounded-lg p-6 text-center cursor-pointer hover:border-primary/50 transition-colors"
-                      onClick={() => document.getElementById('restorativeRecord')?.click()}
-                    >
-                      <Input
-                        id="restorativeRecord"
-                        type="file"
-                        className="hidden"
-                        onChange={handleFileChange("restorativeRecord")}
-                        accept=".pdf,.docx,.jpg,.png"
-                      />
+                    <div className="border-2 border-dashed rounded-lg p-6 text-center bg-muted">
                       <div className="flex flex-col items-center gap-2">
                         <Upload className="h-8 w-8 text-muted-foreground" />
-                        <p className="text-sm text-muted-foreground">
-                          {documents.restorativeRecord.file 
-                            ? documents.restorativeRecord.file.name 
-                            : "Click to upload or drag and drop"}
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          PDF, DOCX, JPG, PNG (max 10MB)
+                        <p className="text-sm text-muted-foreground font-semibold">
+                          {documents.restorativeRecord.file ? documents.restorativeRecord.file.name : "No file preloaded"}
                         </p>
                       </div>
                     </div>
-                    <Textarea
-                      placeholder="Optional notes about this document"
-                      value={documents.restorativeRecord.notes}
-                      onChange={handleNotesChange("restorativeRecord")}
-                    />
+                  </div>
+                </div>
 
-                    <div className="mt-4 space-y-6">
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Alternative Contact Options:
-                      </p>
-                      <div className="flex flex-col gap-4">
-                        <div className="space-y-3">
-                          <Button
-                            type="button"
-                            variant={contactOptions.find(o => o.id === "call")?.selected ? "default" : "outline"}
-                            className="w-full justify-start"
-                            onClick={() => toggleContactOption("call")}
-                          >
-                            <Phone className="mr-2 h-4 w-4" />
-                            Schedule Assessment Call
-                          </Button>
-                          {contactOptions.find(o => o.id === "call")?.selected && (
-                            <div className="text-sm text-muted-foreground pl-4 border-l-2">
-                              An agent will conduct a structured interview with the candidate following our Fair Chance assessment protocol. The call will be scheduled within 24 hours.
-                            </div>
-                          )}
+                <div className="mt-4 space-y-6">
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Alternative Contact Options:
+                  </p>
+                  <div className="flex flex-col gap-4">
+                    <div className="space-y-3">
+                      <Button
+                        type="button"
+                        variant={contactOptions.find(o => o.id === "call")?.selected ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => toggleContactOption("call")}
+                      >
+                        <Phone className="mr-2 h-4 w-4" />
+                        Schedule Assessment Call
+                      </Button>
+                      {contactOptions.find(o => o.id === "call")?.selected && (
+                        <div className="text-sm text-muted-foreground pl-4 border-l-2">
+                          An agent will conduct a structured interview with the candidate following our Fair Chance assessment protocol. The call will be scheduled within 24 hours.
                         </div>
+                      )}
+                    </div>
 
-                        <div className="space-y-3">
-                          <Button
-                            type="button"
-                            variant={contactOptions.find(o => o.id === "message")?.selected ? "default" : "outline"}
-                            className="w-full justify-start"
-                            onClick={() => toggleContactOption("message")}
-                          >
-                            <MessageSquare className="mr-2 h-4 w-4" />
-                            Send Secure Message
-                          </Button>
-                          {contactOptions.find(o => o.id === "message")?.selected && (
-                            <div className="text-sm text-muted-foreground pl-4 border-l-2">
-                              An agent will reach out through our secure messaging platform to gather information about rehabilitation and mitigating factors. Response typically within 2 hours.
-                            </div>
-                          )}
+                    <div className="space-y-3">
+                      <Button
+                        type="button"
+                        variant={contactOptions.find(o => o.id === "message")?.selected ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => toggleContactOption("message")}
+                      >
+                        <MessageSquare className="mr-2 h-4 w-4" />
+                        Send Secure Message
+                      </Button>
+                      {contactOptions.find(o => o.id === "message")?.selected && (
+                        <div className="text-sm text-muted-foreground pl-4 border-l-2">
+                          An agent will reach out through our secure messaging platform to gather information about rehabilitation and mitigating factors. Response typically within 2 hours.
                         </div>
+                      )}
+                    </div>
 
-                        <div className="space-y-3">
-                          <Button
-                            type="button"
-                            variant={contactOptions.find(o => o.id === "request")?.selected ? "default" : "outline"}
-                            className="w-full justify-start"
-                            onClick={() => toggleContactOption("request")}
-                          >
-                            <Mail className="mr-2 h-4 w-4" />
-                            Request Restorative Record
-                          </Button>
-                          {contactOptions.find(o => o.id === "request")?.selected && (
-                            <div className="text-sm text-muted-foreground pl-4 border-l-2">
-                              Send an automated email request to the candidate for documentation of rehabilitation, training certificates, or character references.
-                            </div>
-                          )}
+                    <div className="space-y-3">
+                      <Button
+                        type="button"
+                        variant={contactOptions.find(o => o.id === "request")?.selected ? "default" : "outline"}
+                        className="w-full justify-start"
+                        onClick={() => toggleContactOption("request")}
+                      >
+                        <Mail className="mr-2 h-4 w-4" />
+                        Request Restorative Record
+                      </Button>
+                      {contactOptions.find(o => o.id === "request")?.selected && (
+                        <div className="text-sm text-muted-foreground pl-4 border-l-2">
+                          Send an automated email request to the candidate for documentation of rehabilitation, training certificates, or character references.
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -325,30 +267,67 @@ export default function AssessmentIntake() {
 
       {/* Success Modal */}
       <Dialog open={showSuccessModal} onOpenChange={setShowSuccessModal}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="max-w-4xl h-[80vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl">Documents Successfully Uploaded</DialogTitle>
-            <DialogDescription className="space-y-4 pt-4 text-base">
-              <p>
-                Thank you for uploading your fair chance hiring documents! Your materials are now being processed to power the real-time intelligence system that will guide your team through San Francisco's mandated individualized assessments.
-              </p>
-              
-              <div className="space-y-2">
-                <h3 className="font-semibold text-foreground">What Happens Next:</h3>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Your reviewers can now begin conducting individualized assessments with intelligent support from your own policies</li>
-                  <li>As they evaluate candidates with criminal histories, relevant guidance from your uploaded documents will automatically appear</li>
-                  <li>Each assessment question will be accompanied by applicable content from your policies, ensuring compliance with both the Fair Chance Ordinance and your internal protocols</li>
-                </ul>
+            <DialogTitle className="text-2xl">Protocol Compiled Succesfully:</DialogTitle>
+            <DialogDescription className="space-y-6 pt-4 text-base">
+              <div className="bg-muted p-4 rounded-lg">
+                <p>
+                  All materials have been ingested to power your real-time intelligence system. You're about to review Jacobi Iverson for a Sales Associate role located in San Francisco, CA that is governed by the San Francisco Fair Chance Ordinance. We're going to walk you through an individualized assessment informed by your company policy, applicable laws, and background check data that has been ingested to create your hiring protocol and agentic workflows. Below you will find a summary of the background report and the job requisition you are looking to fill at your organization:
+                </p>
               </div>
-
-              <p>
-                This system transforms your policies from static documents into dynamic guidance, enabling consistent, compliant reviews that reflect your organization's approach to fair chance hiring.
-              </p>
-              
-              <p>
-                Your team is now ready to conduct legally mandated individualized assessments with confidence, backed by your own customized fair chance protocol.
-              </p>
+              <Collapsible defaultOpen>
+                <CollapsibleTrigger asChild>
+                  <button className="w-full text-left font-semibold text-foreground mt-2 bg-primary/10 p-4 rounded-lg">Background Check Summary</button>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="bg-primary/10 p-4 rounded-b-lg">
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Conviction: Possession with Intent to Sell a Controlled Substance (Class B felony)</li>
+                      <li>Date of Conviction: May 12, 2018</li>
+                      <li>Jurisdiction: Kings County, NY</li>
+                      <li>Sentence: Indeterminate 1–9 years; served four years in state custody (June 2019 – June 2023)</li>
+                      <li>Release & Supervision: Paroled in June 2023; completed all parole and probation requirements by May 2025</li>
+                      <li>Parole Violation: One curfew violation recorded in September 2023; resulted in a formal warning and no further sanctions</li>
+                    </ul>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible defaultOpen>
+                <CollapsibleTrigger asChild>
+                  <button className="w-full text-left font-semibold text-foreground mt-2 bg-secondary p-4 rounded-lg">Job Requisition: Entry‑Level Sales Associate</button>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="bg-secondary p-4 rounded-b-lg">
+                    <p className="font-semibold mt-2">Position Overview:</p>
+                    <p>
+                      The Entry‑Level Sales Associate will support sales initiatives by engaging prospects, presenting product information, and assisting with day‑to‑day sales activities. This role includes structured training, mentorship, and opportunities for professional growth.
+                    </p>
+                    <p className="font-semibold mt-2">Key Responsibilities:</p>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Prospect and qualify leads through outreach and inbound inquiries</li>
+                      <li>Conduct product demonstrations and articulate value propositions</li>
+                      <li>Maintain and update CRM records with accurate opportunity and pipeline data</li>
+                      <li>Collaborate with marketing and customer success teams to ensure seamless customer experiences</li>
+                      <li>Meet or exceed individual sales targets and contribute to team goals</li>
+                    </ul>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
+              <Collapsible defaultOpen>
+                <CollapsibleTrigger asChild>
+                  <button className="w-full text-left font-semibold text-foreground mt-2 bg-muted p-4 rounded-lg">What Happens Next</button>
+                </CollapsibleTrigger>
+                <CollapsibleContent>
+                  <div className="bg-muted p-4 rounded-b-lg">
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Your reviewers can now begin conducting individualized assessments with intelligent support from your own policies</li>
+                      <li>As they evaluate candidates with criminal histories, relevant guidance from your uploaded documents will automatically appear</li>
+                      <li>Each assessment question will be accompanied by applicable content from your policies, ensuring compliance with both the Fair Chance Ordinance and your internal protocols</li>
+                    </ul>
+                  </div>
+                </CollapsibleContent>
+              </Collapsible>
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end">
