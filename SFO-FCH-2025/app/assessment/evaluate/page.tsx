@@ -15,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowLeft, ArrowRight, Check, FileText, Info, Send, Edit } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import Image from "next/image"; // Add this import for the logo
 
 interface Step {
   id: number;
@@ -918,6 +919,7 @@ export default function AssessmentEvaluate() {
                 onCheckedChange={(checked) => 
                   setFinalNoticeData(prev => ({ ...prev, receivedResponse: checked as boolean }))
                 }
+                className="h-5 w-5 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:border-green-500 data-[state=checked]:text-green-500 focus:ring-green-500 transition"
               />
               Received response from candidate
             </Label>
@@ -940,6 +942,7 @@ export default function AssessmentEvaluate() {
                 onCheckedChange={(checked) => 
                   setFinalNoticeData(prev => ({ ...prev, convictionError: checked as boolean }))
                 }
+                className="h-5 w-5 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:border-green-500 data-[state=checked]:text-green-500 focus:ring-green-500 transition"
               />
               Error found in conviction history report
             </Label>
@@ -1005,6 +1008,7 @@ export default function AssessmentEvaluate() {
                 onCheckedChange={(checked) => 
                   setFinalNoticeData(prev => ({ ...prev, reconsiderationAllowed: checked as boolean }))
                 }
+                className="h-5 w-5 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:border-green-500 data-[state=checked]:text-green-500 focus:ring-green-500 transition"
               />
               Allow reconsideration requests
             </Label>
@@ -1031,21 +1035,42 @@ export default function AssessmentEvaluate() {
         return (
           <div className="space-y-6">
             <h2 className="text-2xl font-bold">Confirm Conditional Offer</h2>
-            <RadioGroup
-              value={hasConditionalOffer || ""}
-              onValueChange={setHasConditionalOffer}
-            >
-              <div className="space-y-3">
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="yes" id="offer-yes" />
-                  <Label htmlFor="offer-yes">Yes, a conditional offer has been extended</Label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="no" id="offer-no" />
-                  <Label htmlFor="offer-no">No, a conditional offer has not been extended</Label>
-                </div>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <input
+                  type="radio"
+                  id="offer-yes"
+                  name="conditional-offer"
+                  checked={hasConditionalOffer === "yes"}
+                  onChange={() => setHasConditionalOffer("yes")}
+                  className="h-5 w-5 appearance-none rounded-full border-2 border-gray-400 bg-white checked:bg-cinnabar checked:border-cinnabar checked:ring-0 checked:ring-offset-0 focus:ring-0 focus:ring-offset-0 transition
+                    before:content-[''] before:block before:w-3 before:h-3 before:rounded-full before:mx-auto before:my-auto before:bg-cinnabar before:opacity-0 checked:before:opacity-100"
+                  style={{
+                    boxShadow: "none",
+                    outline: "none",
+                    position: "relative",
+                  }}
+                />
+                <label htmlFor="offer-yes" className="text-base font-poppins font-normal">Yes, a conditional offer has been extended</label>
               </div>
-            </RadioGroup>
+              <div className="flex items-center gap-3">
+                <input
+                  type="radio"
+                  id="offer-no"
+                  name="conditional-offer"
+                  checked={hasConditionalOffer === "no"}
+                  onChange={() => setHasConditionalOffer("no")}
+                  className="h-5 w-5 appearance-none rounded-full border-2 border-gray-400 bg-white checked:bg-cinnabar checked:border-cinnabar checked:ring-0 checked:ring-offset-0 focus:ring-0 focus:ring-offset-0 transition
+                    before:content-[''] before:block before:w-3 before:h-3 before:rounded-full before:mx-auto before:my-auto before:bg-cinnabar before:opacity-0 checked:before:opacity-100"
+                  style={{
+                    boxShadow: "none",
+                    outline: "none",
+                    position: "relative",
+                  }}
+                />
+                <label htmlFor="offer-no" className="text-base font-poppins font-normal">No, a conditional offer has not been extended</label>
+              </div>
+            </div>
           </div>
         );
 
@@ -1056,50 +1081,65 @@ export default function AssessmentEvaluate() {
             <p className="text-muted-foreground">
               Review the following criteria to ensure only legally permissible information is considered.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3">
+            <div className="space-y-6">
+              {/* Checklist Item 1 */}
+              <div className="flex items-center gap-4">
                 <Checkbox
                   id="old"
                   checked={documentValidation.isOld}
-                  onCheckedChange={(checked) => 
+                  onCheckedChange={(checked) =>
                     setDocumentValidation(prev => ({ ...prev, isOld: checked as boolean }))
                   }
+                  className="h-6 w-6 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:text-green-500 focus:ring-0 focus:ring-offset-0 transition"
+                  style={{ borderColor: "#d1d5db" }}
                 />
-                <div className="space-y-1">
-                  <Label htmlFor="old">Is the conviction more than 7 years old?</Label>
-                  <p className="text-sm text-muted-foreground">
+                <div>
+                  <div className="text-base font-bold font-poppins leading-tight">
+                    Is the conviction more than 7 years old?
+                  </div>
+                  <div className="text-base font-normal font-poppins text-muted-foreground mt-1">
                     Unless supervising minors/dependent adults, convictions older than 7 years cannot be considered.
-                  </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
+              {/* Checklist Item 2 */}
+              <div className="flex items-center gap-4">
                 <Checkbox
                   id="juvenile"
                   checked={documentValidation.isJuvenile}
                   onCheckedChange={(checked) =>
                     setDocumentValidation(prev => ({ ...prev, isJuvenile: checked as boolean }))
                   }
+                  className="h-6 w-6 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:text-green-500 focus:ring-0 focus:ring-offset-0 transition"
+                  style={{ borderColor: "#d1d5db" }}
                 />
-                <div className="space-y-1">
-                  <Label htmlFor="juvenile">Is the offense juvenile-related?</Label>
-                  <p className="text-sm text-muted-foreground">
+                <div>
+                  <div className="text-base font-bold font-poppins leading-tight">
+                    Is the offense juvenile-related?
+                  </div>
+                  <div className="text-base font-normal font-poppins text-muted-foreground mt-1">
                     Juvenile records cannot be considered in employment decisions.
-                  </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
+              {/* Checklist Item 3 */}
+              <div className="flex items-center gap-4">
                 <Checkbox
                   id="decriminalized"
                   checked={documentValidation.isDecriminalized}
                   onCheckedChange={(checked) =>
                     setDocumentValidation(prev => ({ ...prev, isDecriminalized: checked as boolean }))
                   }
+                  className="h-6 w-6 border-2 border-gray-300 bg-white data-[state=checked]:bg-white data-[state=checked]:text-green-500 focus:ring-0 focus:ring-offset-0 transition"
+                  style={{ borderColor: "#d1d5db" }}
                 />
-                <div className="space-y-1">
-                  <Label htmlFor="decriminalized">Is the conduct now decriminalized?</Label>
-                  <p className="text-sm text-muted-foreground">
+                <div>
+                  <div className="text-base font-bold font-poppins leading-tight">
+                    Is the conduct now decriminalized?
+                  </div>
+                  <div className="text-base font-normal font-poppins text-muted-foreground mt-1">
                     Decriminalized conduct (e.g., cannabis-related) cannot be considered.
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1134,10 +1174,10 @@ export default function AssessmentEvaluate() {
                     value={jobRelation.duties[0]}
                     onValueChange={(value) => setJobRelation(prev => ({ ...prev, duties: [value] }))}
                   >
-                    <SelectTrigger>
+                    <SelectTrigger className="bg-white">
                       <SelectValue placeholder="Choose a job duty" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="bg-white">
                       <SelectItem value="financial">Financial Management</SelectItem>
                       <SelectItem value="sensitive">Access to Sensitive Data</SelectItem>
                       <SelectItem value="supervision">Supervision of Others</SelectItem>
@@ -1166,10 +1206,10 @@ export default function AssessmentEvaluate() {
               value={timeElapsed}
               onValueChange={setTimeElapsed}
             >
-              <SelectTrigger>
+              <SelectTrigger className="bg-white">
                 <SelectValue placeholder="Select time elapsed since offense" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-white">
                 <SelectItem value="less-than-1">Less than 1 year</SelectItem>
                 <SelectItem value="1-3">1-3 years</SelectItem>
                 <SelectItem value="3-7">3-7 years</SelectItem>
@@ -1327,14 +1367,14 @@ export default function AssessmentEvaluate() {
               <div className="flex gap-4">
                 <Button 
                   variant="outline" 
-                  className="flex-1"
+                  className="flex-1 ia-button-outline px-5 py-2 rounded-md text-base font-poppins"
                   onClick={handleProceedWithHire}
                 >
                   Proceed with Hire
                 </Button>
                 <Button 
                   variant="destructive" 
-                  className="flex-1"
+                  className="flex-1 ia-button-primary bg-cinnabar text-white hover:bg-cinnabar-600 px-5 py-2 rounded-md text-base font-poppins"
                   onClick={() => setShowFinalNoticeDialog(true)}
                 >
                   Take Adverse Action
@@ -1352,13 +1392,22 @@ export default function AssessmentEvaluate() {
   return (
     <div className="min-h-screen bg-background">
       <div className="flex h-screen">
+        {/* Sidebar */}
         <div className="w-1/3 border-r p-6 overflow-y-auto">
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <FileText className="h-5 w-5" />
-              <h2 className="text-xl font-semibold">Assessment Progress</h2>
+            {/* RezMe Logo */}
+            <div className="flex items-center mb-6">
+              <Image
+                src="/rezme-logo.png"
+                alt="rézme logo"
+                width={160}
+                height={48}
+                priority
+                className="ml-2 mt-2"
+                style={{ maxWidth: 200, maxHeight: 60, width: "auto", height: "auto" }}
+              />
             </div>
-            
+            <h2 className="text-xl font-semibold mb-2">Assessment Progress</h2>
             <div className="space-y-4">
               {steps.map((step) => (
                 <button
@@ -1384,6 +1433,7 @@ export default function AssessmentEvaluate() {
           </div>
         </div>
 
+        {/* Main Content */}
         <div className="flex-1 p-6 overflow-y-auto">
           <Button 
             variant="ghost" 
@@ -1401,6 +1451,7 @@ export default function AssessmentEvaluate() {
               <div className="flex justify-between mt-8">
                 <Button
                   variant="outline"
+                  className="ia-button-outline px-5 py-2 rounded-md text-base font-poppins"
                   onClick={handleBack}
                   disabled={currentStep === 1}
                 >
@@ -1408,6 +1459,7 @@ export default function AssessmentEvaluate() {
                 </Button>
                 {currentStep !== 8 && (
                   <Button
+                    className="ia-button-primary bg-cinnabar text-white hover:bg-cinnabar-600 px-5 py-2 rounded-md text-base font-poppins"
                     onClick={currentStep === 8 ? handleComplete : handleNext}
                     disabled={
                       (currentStep === 1 && !hasConditionalOffer) ||
@@ -1431,19 +1483,50 @@ export default function AssessmentEvaluate() {
                 <h3 className="font-semibold">Critical Information</h3>
               </div>
               
-              <Tabs defaultValue="legal" className="w-full">
-                <TabsList className="w-full">
-                  <TabsTrigger value="legal">Legal</TabsTrigger>
-                  <TabsTrigger value="policy">Company Policy</TabsTrigger>
-                  <TabsTrigger value="context">Candidate Context</TabsTrigger>
+              {/* Tabs with Cinnabar accent for selected, light Cinnabar for unselected */}
+              <Tabs defaultValue="policy" className="w-full">
+                <TabsList className="w-full flex bg-transparent mb-0 p-0 rounded-none border-0 shadow-none justify-start gap-4">
+                  <TabsTrigger
+                    value="legal"
+                    className={`font-poppins text-base px-8 py-3 rounded-t-xl font-semibold
+                      data-[state=active]:bg-cinnabar data-[state=active]:text-white
+                      data-[state=inactive]:bg-[#ffeceb] data-[state=inactive]:text-cinnabar
+                      border-0 shadow-none outline-none transition-none
+                    `}
+                    style={{ zIndex: 2 }}
+                  >
+                    Legal
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="policy"
+                    className={`font-poppins text-base px-8 py-3 rounded-t-xl font-semibold
+                      data-[state=active]:bg-cinnabar data-[state=active]:text-white
+                      data-[state=inactive]:bg-[#ffeceb] data-[state=inactive]:text-cinnabar
+                      border-0 shadow-none outline-none transition-none
+                    `}
+                    style={{ zIndex: 1 }}
+                  >
+                    Company Policy
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="context"
+                    className={`font-poppins text-base px-8 py-3 rounded-t-xl font-semibold
+                      data-[state=active]:bg-cinnabar data-[state=active]:text-white
+                      data-[state=inactive]:bg-[#ffeceb] data-[state=inactive]:text-cinnabar
+                      border-0 shadow-none outline-none transition-none
+                    `}
+                    style={{ zIndex: 0 }}
+                  >
+                    Candidate Context
+                  </TabsTrigger>
                 </TabsList>
-                <TabsContent value="legal" className="p-4 border rounded-lg mt-4">
+                <TabsContent value="legal" className="pt-8 p-4 border rounded-b-lg border-t-0 -mt-2">
                   {getLegalGuidance()}
                 </TabsContent>
-                <TabsContent value="policy" className="p-4 border rounded-lg mt-4">
+                <TabsContent value="policy" className="pt-8 p-4 border rounded-b-lg border-t-0 -mt-2">
                   {getCompanyPolicy()}
                 </TabsContent>
-                <TabsContent value="context" className="p-4 border rounded-lg mt-4">
+                <TabsContent value="context" className="pt-8 p-4 border rounded-b-lg border-t-0 -mt-2">
                   {getCandidateContext()}
                 </TabsContent>
               </Tabs>
@@ -1477,7 +1560,10 @@ export default function AssessmentEvaluate() {
                 </>
               )}
             </Button>
-            <Button onClick={handleSendOfferLetter}>
+            <Button
+              className="ia-button-primary bg-cinnabar text-white hover:bg-cinnabar-600"
+              onClick={handleSendOfferLetter}
+            >
               <Send className="mr-2 h-4 w-4" />
               Send Offer Letter
             </Button>
@@ -1510,14 +1596,17 @@ export default function AssessmentEvaluate() {
                 </>
               )}
             </Button>
-            <Button onClick={() => {
-              toast({
-                title: "Notice Sent",
-                description: "The candidate has been notified and has 7 days to respond.",
-              });
-              setShowNoticeDialog(false);
-              handleNext();
-            }}>
+            <Button
+              className="ia-button-primary bg-cinnabar text-white hover:bg-cinnabar-600"
+              onClick={() => {
+                toast({
+                  title: "Notice Sent",
+                  description: "The candidate has been notified and has 7 days to respond.",
+                });
+                setShowNoticeDialog(false);
+                handleNext();
+              }}
+            >
               <Send className="mr-2 h-4 w-4" />
               Send Notice
             </Button>
@@ -1550,14 +1639,17 @@ export default function AssessmentEvaluate() {
                 </>
               )}
             </Button>
-            <Button onClick={() => {
-              toast({
-                title: "Final Notice Sent",
-                description: "The final notice has been sent to the candidate.",
-              });
-              setShowFinalNoticeDialog(false);
-              setShowCompleteModal(true);
-            }}>
+            <Button
+              className="ia-button-primary bg-cinnabar text-white hover:bg-cinnabar-600"
+              onClick={() => {
+                toast({
+                  title: "Final Notice Sent",
+                  description: "The final notice has been sent to the candidate.",
+                });
+                setShowFinalNoticeDialog(false);
+                setShowCompleteModal(true);
+              }}
+            >
               <Send className="mr-2 h-4 w-4" />
               Send Final Notice
             </Button>
@@ -1586,7 +1678,7 @@ export default function AssessmentEvaluate() {
             <DialogDescription className="space-y-4">
               <p>
                 Before taking adverse action such as failing/refusing to hire, discharging, or not promoting an individual based on a conviction history or unresolved arrest, you must give the individual an opportunity to present evidence that:
-              </p>
+                           </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>The information is inaccurate</li>
                 <li>The individual has been rehabilitated</li>
