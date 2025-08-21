@@ -47,8 +47,8 @@ export default function Home() {
 			</div>
 			<div className="mx-auto max-w-7xl space-y-8 px-8 pb-8">
 				<h1 className="text-4xl font-bold text-foreground">
-					Fair Chance Hiring Compliance Platform Demo:{" "}
-					<span className="text-cinnabar">San Francisco</span>
+					Post Background Check Process:{" "}
+					<span className="text-cinnabar">Oklahoma</span>
 				</h1>
 				<div className="flex gap-8">
 					{/* Legal Overview Panel */}
@@ -56,31 +56,36 @@ export default function Home() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2 text-foreground">
                 <Scale className="h-5 w-5 text-cinnabar" />
-								Fair Chance Ordinance Legal Overview
+								Ban-the-Box
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="space-y-4">
 							<p className="text-gray35">
-								San Francisco's Fair Chance Ordinance promotes compliant hiring
-								practices by regulating how employers use arrest and conviction
-								records in employment decisions.
+								Oklahoma's "Ban the Box" law, initiated by a 2016 Executive Order, applies only to state agencies, prohibiting them from asking about criminal history on job applications but allowing inquiries later in the hiring process, after a conditional offer of employment.
 							</p>
-							<div className="space-y-2">
-								<h3 className="font-semibold text-gray35">Key Requirements:</h3>
-								<ul className="list-disc pl-5 space-y-1 text-sm text-foreground font-poppins">
-									<li>Background checks only after conditional offer</li>
-									<li>Individualized assessment required</li>
-									<li>7-day candidate response period</li>
-									<li>3-year record retention mandate</li>
-								</ul>
+
+							<div className="space-y-3">
+								<Button
+									variant="outline"
+									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+									onClick={() => router.push("/ordinance")}
+								>
+									View Oklahoma Ban-the-Box Law
+								</Button>
+								<Button
+									asChild
+									variant="outline"
+									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+								>
+									<a
+										href="https://www.congress.gov/bill/116th-congress/senate-bill/387/text"
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										5 U.S. Code Chapter 92 Part III Subpart H
+									</a>
+								</Button>
 							</div>
-							<Button
-								variant="outline"
-								className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
-								onClick={() => router.push("/ordinance")}
-							>
-								View Full San Francisco Fair Chance Ordinance
-							</Button>
 						</CardContent>
 					</Card>
 
@@ -95,7 +100,7 @@ export default function Home() {
 					  <CardContent className="space-y-4">
 					    <p className="text-gray35">
 					      Start a structured workflow to evaluate conviction history in
-					      compliance with Fair Chance requirements. This process will guide
+					      compliance with Oklahoma Ban-the-Box requirements. This process will guide
 					      you through:
 					    </p>
 					    {/* Steps Row (Icons + Arrows) */}
@@ -158,6 +163,35 @@ export default function Home() {
 					  </CardContent>
 					</Card>
 				</div>
+
+				{/* Work Opportunity Tax Credits Card */}
+				<Card className="mt-8 bg-background text-foreground border border-border shadow-sm rounded-lg">
+					<CardHeader>
+						<CardTitle className="flex items-center gap-2 text-foreground">
+							<FileText className="h-5 w-5 text-cinnabar" />
+							Work Opportunity Tax Credits (WOTC)
+						</CardTitle>
+					</CardHeader>
+					<CardContent className="space-y-4">
+						<p className="text-gray35">
+							The Work Opportunity Tax Credit (WOTC) is a federal tax credit available to employers who hire individuals from certain targeted groups who have consistently faced significant barriers to employment.
+						</p>
+						<Button
+							asChild
+							variant="outline"
+							className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+						>
+							<a
+								href="https://wotc.rezmedemo.com/"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								Access WOTC Platform
+							</a>
+						</Button>
+					</CardContent>
+				</Card>
+
 				{/* Candidate Portal Card */}
 				<Card className="mt-8 bg-background text-foreground border border-border shadow-sm rounded-lg">
 					<CardHeader>
@@ -169,8 +203,8 @@ export default function Home() {
 					<CardContent className="space-y-4">
 						<p className="text-gray35">
 							A dedicated portal for candidates to view, update, and share their
-							restorative justice and rehabilitation records as part of the Fair
-							Chance hiring process.
+							restorative justice and rehabilitation records as part of the Oklahoma
+							Ban-the-Box hiring process.
 						</p>
 						<Button
 							asChild
@@ -178,7 +212,7 @@ export default function Home() {
 							variant="outline"
 						>
 							<a
-								href="https://cornell.restorativerecord.com/"
+								href="https://candidate.rezme.app/"
 								target="_blank"
 								rel="noopener noreferrer"
 							>

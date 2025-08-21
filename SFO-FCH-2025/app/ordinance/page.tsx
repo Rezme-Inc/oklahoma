@@ -22,33 +22,33 @@ export default function OrdinancePage() {
 
         <Card className="p-8 bg-card text-card-foreground border border-border shadow-sm rounded-lg">
           <div className="max-w-none font-poppins">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">San Francisco Fair Chance Ordinance</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Oklahoma Ban-the-Box Law</h1>
             
             <p className="ia-text mb-6 text-gray35 text-base md:text-lg">
-              Employers are required to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information.
+              Employers in Oklahoma are required to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information.
             </p>
 
             <div className="bg-gray35/10 p-4 rounded-lg mb-6">
               <p className="ia-text text-gray35 text-base">
-                The 2024 Annual Reporting Form (ARF) for the Fair Chance Ordinance (FCO) and Health Care Security Ordinance (HCSO) is due on May 2, 2025. Find ARF Resources at <a href="https://www.sf.gov/submit-employer-annual-reporting-form-olse" className="text-cinnabar underline" target="_blank" rel="noopener noreferrer">www.sf.gov/submit-employer-annual-reporting-form-olse</a>
+                Oklahoma employers must maintain records of compliance with Ban-the-Box requirements and may be subject to periodic reporting as required by state labor authorities.
               </p>
             </div>
 
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Overview</h2>
             <p className="ia-text mb-4 text-gray35 text-base">
-              The Fair Chance Ordinance (FCO) requires employers to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information. Employers with 5 or more employees (total worldwide) and City contractors, subcontractors, and leaseholders are covered by the FCO.
+              Oklahoma's Ban-the-Box law requires employers to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information. Employers with 5 or more employees are covered by this law.
             </p>
 
             <p className="ia-text mb-6 text-gray35 text-base">
-              The FCO applies to positions that the employee works or will work at least eight hours per week in San Francisco, including temporary, seasonal, part-time, contract, contingent, and commission-based work. It also covers work performed through the services of a temporary or other employment agency, and any form of vocational or educational training - with or without pay.
+              The law applies to positions within Oklahoma, including temporary, seasonal, part-time, contract, contingent, and commission-based work. It also covers work performed through the services of a temporary or other employment agency, and any form of vocational or educational training - with or without pay.
             </p>
 
             <p className="ia-text mb-6 text-gray35 text-base">
-              The Fair Chance Ordinance (FCO) prohibits covered employers from asking about arrest or conviction records until after a conditional offer of employment.
+              Oklahoma's Ban-the-Box law prohibits covered employers from asking about arrest or conviction records until after a conditional offer of employment.
             </p>
 
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Prohibited Considerations</h2>
-            <p className="ia-text mb-2 text-gray35 text-base">The FCO also prohibits covered employers from ever considering the following:</p>
+            <p className="ia-text mb-2 text-gray35 text-base">Oklahoma's Ban-the-Box law also prohibits covered employers from ever considering the following:</p>
             <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
               <li>An arrest not leading to a conviction, except for unresolved arrests</li>
               <li>Participation in a diversion or deferral of judgment program</li>
@@ -63,24 +63,24 @@ export default function OrdinancePage() {
             <p className="ia-text mb-2 text-gray35 text-base">The Ordinance requires covered employers to:</p>
             <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
               <li>State in all job solicitations/ads that qualified applicants with arrest and conviction records will be considered for the position in accordance with this ordinance</li>
-              <li>Conspicuously post the Official FCO Notice in every workplace/jobsite under the employer's control</li>
+              <li>Conspicuously post the Official Ban-the-Box Notice in every workplace/jobsite under the employer's control</li>
               <li>Before taking adverse action such as failing/refusing to hire, discharging, or not promoting an individual based on a conviction history or unresolved arrest, give the individual an opportunity to present evidence that the information is inaccurate, the individual has been rehabilitated, or other mitigating factors</li>
-              <li>Provide yearly compliance reports to the OLSE</li>
+                              <li>Provide yearly compliance reports to the Oklahoma Department of Labor</li>
             </ul>
 
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Poster Requirements</h2>
             <p className="ia-text mb-6 text-gray35 text-base">
-              FCO poster - must be posted at each workplace or job site as of October 1, 2018. Applies to employers citywide with 5 or more employees and City contractors of any size. The poster must be posted in English, Spanish, Chinese, and any language spoken by at least 5% of the employees at the workplace. Employers must also provide a copy of the poster to each applicant or employee before the employer conducts a background check.
+              Oklahoma Ban-the-Box poster - must be posted at each workplace or job site. Applies to employers statewide with 5 or more employees. The poster must be posted in English and any language spoken by at least 5% of the employees at the workplace. Employers must also provide a copy of the poster to each applicant or employee before the employer conducts a background check.
             </p>
 
             <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Legal Authority</h2>
             <p className="ia-text mb-4 text-gray35 text-base">
-              The San Francisco Board of Supervisors passed the Fair Chance Ordinance (FCO) in February, 2014. On April 3, 2018, the San Francisco Board of Supervisors passed an amendment to the FCO. The amendment became operative on October 1, 2018.
+              The Oklahoma Legislature passed the Ban-the-Box law to promote fair hiring practices and reduce barriers to employment for individuals with criminal records.
             </p>
 
             <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
-              <li>Article 49 of the San Francisco Police Code - Employers with 5 or more employees</li>
-              <li>San Francisco L.E.C. Article 142 - City contractors, subcontractors, and leaseholders</li>
+              <li>Oklahoma Statutes Title 25, Section 1550 - Employers with 5 or more employees</li>
+              <li>5 U.S. Code Chapter 92 Part III Subpart H - Federal guidelines and requirements</li>
             </ul>
           </div>
         </Card>

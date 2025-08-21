@@ -256,7 +256,7 @@ export default function AssessmentEvaluate() {
           <div className="space-y-4">
             <h3 className="font-semibold">SEC. 4904 subsections (a)(1)-(7)</h3>
             <p className="text-sm text-muted-foreground mb-2">
-              The FCO prohibits covered employers from ever considering the following:
+              Oklahoma's Ban-the-Box law prohibits covered employers from ever considering the following:
             </p>
             <ul className="text-sm text-muted-foreground space-y-2">
               <li>• An arrest not leading to a conviction, except for unresolved arrests</li>
@@ -287,7 +287,7 @@ export default function AssessmentEvaluate() {
           <div className="space-y-4">
             <h3 className="font-semibold">Time Elapsed Restrictions</h3>
             <p className="text-sm text-muted-foreground mb-2">
-              The Fair Chance Ordinance (FCO) prohibits covered employers from ever considering the following:
+              Oklahoma's Ban-the-Box law prohibits covered employers from ever considering the following:
             </p>
             <p className="text-sm text-muted-foreground mb-4">
               A conviction that is more than 7 years old (unless the position being considered supervises minors or dependent adults).
@@ -402,7 +402,7 @@ export default function AssessmentEvaluate() {
         return (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-            Pursuant to the San Francisco Fair Chance Ordinance, we consider for employment qualified applicants with arrest and conviction records.
+            Pursuant to Oklahoma's Ban-the-Box law, we consider for employment qualified applicants with arrest and conviction records.
             </p>
           </div>
         );
@@ -418,7 +418,7 @@ export default function AssessmentEvaluate() {
         return (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-            We are committed to fair hiring practices and fully adheres to the requirements set forth by the San Francisco Office of Labor Standards Enforcement (OLSE) under the Fair Chance Ordinance (FCO). This includes providing applicants with automated notice of their right to file a complaint with the OLSE if they believe we are not in compliance with the law.
+            We are committed to fair hiring practices and fully adheres to the requirements set forth by the Oklahoma Department of Labor under the Ban-the-Box law. This includes providing applicants with automated notice of their right to file a complaint with the appropriate agency if they believe we are not in compliance with the law.
             </p>
           </div>
         );
@@ -426,7 +426,7 @@ export default function AssessmentEvaluate() {
           return (
           <div className="space-y-4">
             <p className="text-sm text-muted-foreground">
-              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (FCO safe‑harbor unless role supervises minors/dependent adults).
+              Record date of conviction and completion of sentence; calculate years elapsed. Highlight whether ≥ 7 yrs have passed (Oklahoma law safe‑harbor unless role supervises minors/dependent adults).
             </p>
           </div>
         );
@@ -1290,7 +1290,7 @@ export default function AssessmentEvaluate() {
                   onCheckedChange={(checked) => setCertificationChecked(checked as boolean)}
                 />
                 <Label htmlFor="certification" className="text-sm">
-                  I certify that this decision complies with the Fair Chance Ordinance and is based solely on legally permissible information.
+                  I certify that this decision complies with Oklahoma's Ban-the-Box law and is based solely on legally permissible information.
                 </Label>
               </div>
             </div>
@@ -1662,7 +1662,7 @@ export default function AssessmentEvaluate() {
           <DialogHeader>
             <DialogTitle>Conditional Offer Required</DialogTitle>
             <DialogDescription>
-              You must extend a conditional offer before accessing or considering conviction history. This is a requirement under San Francisco's Fair Chance Ordinance.
+              You must extend a conditional offer before accessing or considering conviction history. This is a requirement under Oklahoma's Ban-the-Box law.
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end">
