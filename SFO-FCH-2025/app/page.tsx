@@ -85,6 +85,13 @@ export default function Home() {
 										5 U.S. Code Chapter 92 Part III Subpart H
 									</a>
 								</Button>
+								<Button
+									variant="outline"
+									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+									onClick={() => router.push("/tulsa-executive-order")}
+								>
+									Tulsa Ban-the-Box: EXECUTIVE ORDER NO.2016-4
+								</Button>
 							</div>
 						</CardContent>
 					</Card>
