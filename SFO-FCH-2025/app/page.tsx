@@ -65,10 +65,6 @@ export default function Home() {
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="space-y-4">
-							<p className="text-gray35">
-								Oklahoma's "Ban the Box" law, initiated by a 2016 Executive Order, applies only to state agencies, prohibiting them from asking about criminal history on job applications but allowing inquiries later in the hiring process, after a conditional offer of employment.
-							</p>
-
 							<div className="space-y-4">
 								<div className="space-y-2">
 									<Button
@@ -178,12 +174,21 @@ export default function Home() {
 					        </div>
 					      )}
 					    </div>
-					    <Button
-					      className="w-full bg-cinnabar text-white hover:bg-cinnabar-600 transition font-poppins"
-					      onClick={() => router.push("/assessment/setup")}
-					    >
-					      Begin New Assessment Demo
-					    </Button>
+					    <div className="grid grid-cols-2 gap-4">
+					      <Button
+					        className="w-full bg-cinnabar text-white hover:bg-cinnabar-600 transition font-poppins"
+					        onClick={() => router.push("/assessment")}
+					      >
+					        Begin New Assessment Demo
+					      </Button>
+					      <Button
+					        variant="outline"
+					        className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+					        onClick={() => router.push("/assessment/setup")}
+					      >
+					        Occupational Licensing
+					      </Button>
+					    </div>
 					  </CardContent>
 					</Card>
 				</div>
