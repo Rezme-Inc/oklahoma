@@ -163,7 +163,7 @@ export default function Home() {
 					    </div>
 					    <Button
 					      className="w-full bg-cinnabar text-white hover:bg-cinnabar-600 transition font-poppins"
-					      onClick={() => router.push("/assessment")}
+					      onClick={() => router.push("/assessment/setup")}
 					    >
 					      Begin New Assessment Demo
 					    </Button>
