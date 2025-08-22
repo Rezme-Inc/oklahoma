@@ -9,9 +9,14 @@ import { useRouter } from "next/navigation";
 
 const steps = [
 	{
-		title: "Assessment",
-		description: "Evaluate conviction history in relation to job duties.",
-		icon: <ClipboardList className="w-6 h-6" />,
+		title: "Background Check",
+		description: "Conduct comprehensive background screening and review.",
+		icon: <FileText className="w-6 h-6" />,
+	},
+	{
+		title: "Adverse Action Notice",
+		description: "Issue preliminary adverse action notification if required.",
+		icon: <AlertTriangle className="w-6 h-6" />,
 	},
 	{
 		title: "Candidate Response",
@@ -19,9 +24,9 @@ const steps = [
 		icon: <User className="w-6 h-6" />,
 	},
 	{
-		title: "Reassessment",
-		description: "Review candidate input and reassess decision.",
-		icon: <AlertTriangle className="w-6 h-6" />,
+		title: "De-risking Process",
+		description: "Evaluate mitigation factors and rehabilitation evidence.",
+		icon: <Users className="w-6 h-6" />,
 	},
 	{
 		title: "Final Decision",
@@ -56,7 +61,7 @@ export default function Home() {
 						<CardHeader>
 							<CardTitle className="flex items-center gap-2 text-foreground">
                 <Scale className="h-5 w-5 text-cinnabar" />
-								Ban-the-Box
+								Legal Intelligence
 							</CardTitle>
 						</CardHeader>
 						<CardContent className="space-y-4">
@@ -64,34 +69,49 @@ export default function Home() {
 								Oklahoma's "Ban the Box" law, initiated by a 2016 Executive Order, applies only to state agencies, prohibiting them from asking about criminal history on job applications but allowing inquiries later in the hiring process, after a conditional offer of employment.
 							</p>
 
-							<div className="space-y-3">
-								<Button
-									variant="outline"
-									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
-									onClick={() => router.push("/ordinance")}
-								>
-									View Oklahoma Ban-the-Box Law
-								</Button>
-								<Button
-									asChild
-									variant="outline"
-									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
-								>
-									<a
-										href="https://www.congress.gov/bill/116th-congress/senate-bill/387/text"
-										target="_blank"
-										rel="noopener noreferrer"
+							<div className="space-y-4">
+								<div className="space-y-2">
+									<Button
+										variant="outline"
+										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+										onClick={() => router.push("/ordinance")}
 									>
-										5 U.S. Code Chapter 92 Part III Subpart H
-									</a>
-								</Button>
-								<Button
-									variant="outline"
-									className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
-									onClick={() => router.push("/tulsa-executive-order")}
-								>
-									Tulsa Ban-the-Box: EXECUTIVE ORDER NO.2016-4
-								</Button>
+										View Oklahoma Ban-the-Box Law
+									</Button>
+									<p className="text-xs text-gray-500 text-center px-2">
+										Applies to Oklahoma state agency positions and hiring processes.
+									</p>
+								</div>
+								<div className="space-y-2">
+									<Button
+										asChild
+										variant="outline"
+										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+									>
+										<a
+											href="https://www.congress.gov/bill/116th-congress/senate-bill/387/text"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											5 U.S. Code Chapter 92 Part III Subpart H
+										</a>
+									</Button>
+									<p className="text-xs text-gray-500 text-center px-2">
+										Federal law for companies with federal contracts.
+									</p>
+								</div>
+								<div className="space-y-2">
+									<Button
+										variant="outline"
+										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+										onClick={() => router.push("/tulsa-executive-order")}
+									>
+										Tulsa Ban-the-Box: EXECUTIVE ORDER NO.2016-4
+									</Button>
+									<p className="text-xs text-gray-500 text-center px-2">
+										City of Tulsa executive order applying Ban-the-Box to municipal positions.
+									</p>
+								</div>
 							</div>
 						</CardContent>
 					</Card>
@@ -128,9 +148,6 @@ export default function Home() {
 					            </div>
 					            <span className="text-lg font-bold text-foreground text-center break-words leading-tight mt-2 max-w-[200px]">
 					              {step.title}
-					            </span>
-					            <span className="text-sm text-gray35 text-center block max-w-[340px] mt-2">
-					              {step.description}
 					            </span>
 					          </div>
 					        ))}
@@ -209,9 +226,7 @@ export default function Home() {
 					</CardHeader>
 					<CardContent className="space-y-4">
 						<p className="text-gray35">
-							A dedicated portal for candidates to view, update, and share their
-							restorative justice and rehabilitation records as part of the Oklahoma
-							Ban-the-Box hiring process.
+							A dedicated portal for candidates to share evidence of rehabilitation and employability with specialized screening pathways for work release programs, reentry organizations, rehabilitation centers, and diversion initiatives.
 						</p>
 						<Button
 							asChild
