@@ -72,7 +72,7 @@ export default function Home() {
 										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
 										onClick={() => router.push("/ordinance")}
 									>
-										View Oklahoma Ban-the-Box Law
+										Executive Order 2016-03
 									</Button>
 									<p className="text-xs text-gray-500 text-center px-2">
 										Applies to Oklahoma state agency positions and hiring processes.

@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function OrdinancePage() {
@@ -22,66 +22,97 @@ export default function OrdinancePage() {
 
         <Card className="p-8 bg-card text-card-foreground border border-border shadow-sm rounded-lg">
           <div className="max-w-none font-poppins">
-            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-6">Oklahoma Ban-the-Box Law</h1>
-            
-            <p className="ia-text mb-6 text-gray35 text-base md:text-lg">
-              Employers in Oklahoma are required to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information.
-            </p>
-
-            <div className="bg-gray35/10 p-4 rounded-lg mb-6">
-              <p className="ia-text text-gray35 text-base">
-                Oklahoma employers must maintain records of compliance with Ban-the-Box requirements and may be subject to periodic reporting as required by state labor authorities.
-              </p>
+            <div className="text-center mb-8">
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-2">EXECUTIVE DEPARTMENT</h1>
+              <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">STATE OF OKLAHOMA</h2>
+              <h3 className="text-lg md:text-xl font-bold text-cinnabar mb-4">EXECUTIVE ORDER 2016-03</h3>
+              <div className="bg-cinnabar/10 p-4 rounded-lg border border-cinnabar mb-4">
+                <p className="text-base font-semibold text-foreground mb-2">GOVERNOR KEVIN STITT RENEWED EXECUTIVE ORDER 2016-03</p>
+                <p className="text-sm text-gray35">Directing all state agencies to remove from job applications questions regarding convictions and criminal history, unless a felony conviction would automatically render an applicant not qualified</p>
+              </div>
+              <p className="text-base text-gray35">Originally signed by Governor Mary Fallin • February 24, 2016</p>
             </div>
+            
+            <h4 className="text-lg md:text-xl font-bold text-foreground mb-6 text-center">
+              REMOVING BARRIERS TO STATE EMPLOYMENT FOR OKLAHOMANS WITH CRIMINAL RECORDS
+            </h4>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Overview</h2>
-            <p className="ia-text mb-4 text-gray35 text-base">
-              Oklahoma's Ban-the-Box law requires employers to follow strict rules regarding applicants' and employees' arrest and conviction record(s) and related information. Employers with 5 or more employees are covered by this law.
-            </p>
+            <div className="space-y-6">
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-4">Background and Rationale:</h5>
+                <div className="space-y-4 text-gray35 text-base">
+                  <p>
+                    <strong>One in 12 Oklahomans is a convicted felon.</strong> Currently, over 55,000 Oklahomans are in the custody or under the supervision of the Oklahoma Department of Corrections for a felony offense, the majority of whom will eventually be released back into our community.
+                  </p>
+                  <p>
+                    The majority of these individuals are incarcerated or on probation for <strong>non-violent felony crimes</strong>. In 2015, Governor Fallin issued Executive Order 2015-02, which created the Oklahoma Justice Reform Steering Committee.
+                  </p>
+                  <p>
+                    Employment after a felony conviction is always a challenge, and an individual's ability to gain employment is a <strong>critical and necessary component to reducing recidivism</strong> and for those individuals to lead a productive and successful life.
+                  </p>
+                </div>
+              </div>
 
-            <p className="ia-text mb-6 text-gray35 text-base">
-              The law applies to positions within Oklahoma, including temporary, seasonal, part-time, contract, contingent, and commission-based work. It also covers work performed through the services of a temporary or other employment agency, and any form of vocational or educational training - with or without pay.
-            </p>
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-2">Executive Directive:</h5>
+                <p className="ia-text text-gray35 text-base mb-4">
+                  The Governor hereby directs and orders all state agencies to <strong>remove from job applications, questions regarding convictions and criminal history</strong>, unless a felony conviction would automatically render an applicant not qualified.
+                </p>
+              </div>
 
-            <p className="ia-text mb-6 text-gray35 text-base">
-              Oklahoma's Ban-the-Box law prohibits covered employers from asking about arrest or conviction records until after a conditional offer of employment.
-            </p>
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-2">What This Order Does NOT Prevent:</h5>
+                <ul className="space-y-2 text-gray35 text-base ml-4">
+                  <li>• Employers from inquiring about felony convictions during the <strong>interview process</strong></li>
+                  <li>• Employers from conducting <strong>background checks</strong> into prospective employees</li>
+                  <li>• Employers from excluding convicted felons when <strong>required by law</strong></li>
+                  <li>• Applications for <strong>sensitive governmental positions</strong> where criminal history would be an immediate disqualification</li>
+                </ul>
+              </div>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Prohibited Considerations</h2>
-            <p className="ia-text mb-2 text-gray35 text-base">Oklahoma's Ban-the-Box law also prohibits covered employers from ever considering the following:</p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
-              <li>An arrest not leading to a conviction, except for unresolved arrests</li>
-              <li>Participation in a diversion or deferral of judgment program</li>
-              <li>A conviction that has been dismissed, expunged, otherwise invalidated, or inoperative</li>
-              <li>A conviction in the juvenile justice system</li>
-              <li>An offense other than a felony or misdemeanor, such as an infraction</li>
-              <li>A conviction that is more than 7 years old (unless the position being considered supervises minors or dependent adults)</li>
-              <li>A conviction for decriminalized conduct, including the non-commercial use and cultivation of cannabis</li>
-            </ul>
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-2">Purpose and Intent:</h5>
+                <p className="ia-text text-gray35 text-base mb-4">
+                  This Order is intended to provide state job applicants:
+                </p>
+                <ul className="space-y-2 text-gray35 text-base ml-4">
+                  <li>• At least the <strong>initial opportunity for consideration</strong> for employment</li>
+                  <li>• An opportunity to <strong>discuss their conviction record</strong> and provide information that indicates rehabilitation</li>
+                  <li>• Allow applicants to be considered <strong>based upon their qualifications</strong> without the stigma of a conviction record</li>
+                </ul>
+              </div>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Employer Requirements</h2>
-            <p className="ia-text mb-2 text-gray35 text-base">The Ordinance requires covered employers to:</p>
-            <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
-              <li>State in all job solicitations/ads that qualified applicants with arrest and conviction records will be considered for the position in accordance with this ordinance</li>
-              <li>Conspicuously post the Official Ban-the-Box Notice in every workplace/jobsite under the employer's control</li>
-              <li>Before taking adverse action such as failing/refusing to hire, discharging, or not promoting an individual based on a conviction history or unresolved arrest, give the individual an opportunity to present evidence that the information is inaccurate, the individual has been rehabilitated, or other mitigating factors</li>
-                              <li>Provide yearly compliance reports to the Oklahoma Department of Labor</li>
-            </ul>
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-2">Implementation:</h5>
+                <p className="ia-text text-gray35 text-base">
+                  Copies of this Executive Order are distributed to all Governor's Cabinet Secretaries who shall cause the provisions of this order to be implemented by all appropriate agencies of state government.
+                </p>
+              </div>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Poster Requirements</h2>
-            <p className="ia-text mb-6 text-gray35 text-base">
-              Oklahoma Ban-the-Box poster - must be posted at each workplace or job site. Applies to employers statewide with 5 or more employees. The poster must be posted in English and any language spoken by at least 5% of the employees at the workplace. Employers must also provide a copy of the poster to each applicant or employee before the employer conducts a background check.
-            </p>
+              <div>
+                <h5 className="text-base font-bold text-foreground mb-2">Effective Date:</h5>
+                <p className="ia-text text-gray35 text-base">
+                  This Executive Order took effect February 24, 2016.
+                </p>
+              </div>
 
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground mb-4 mt-10">Legal Authority</h2>
-            <p className="ia-text mb-4 text-gray35 text-base">
-              The Oklahoma Legislature passed the Ban-the-Box law to promote fair hiring practices and reduce barriers to employment for individuals with criminal records.
-            </p>
-
-            <ul className="list-disc pl-5 mb-6 space-y-2 ia-text text-gray35 text-base">
-              <li>Oklahoma Statutes Title 25, Section 1550 - Employers with 5 or more employees</li>
-              <li>5 U.S. Code Chapter 92 Part III Subpart H - Federal guidelines and requirements</li>
-            </ul>
+              <div className="pt-6 border-t">
+                <Button
+                  asChild
+                  className="w-full bg-cinnabar text-white hover:bg-cinnabar-600 transition font-poppins"
+                >
+                  <a
+                    href="https://www.sos.ok.gov/documents/executive/1023.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2"
+                  >
+                    View Full Text of Executive Order 2016-03
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </Card>
       </div>
