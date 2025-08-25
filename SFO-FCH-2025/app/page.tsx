@@ -100,12 +100,12 @@ export default function Home() {
 									<Button
 										variant="outline"
 										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
-										onClick={() => router.push("/tulsa-executive-order")}
+										onClick={() => router.push("/occupational-licensing")}
 									>
-										Tulsa Ban-the-Box: EXECUTIVE ORDER NO.2016-4
+										Oklahoma Occupational Licensing Law (SB 1691)
 									</Button>
 									<p className="text-xs text-gray-500 text-center px-2">
-										City of Tulsa executive order applying Ban-the-Box to municipal positions.
+										Criminal history considerations for professional licensing and certification.
 									</p>
 								</div>
 							</div>

@@ -118,6 +118,8 @@ export default function AssessmentEvaluate() {
   const [showCompleteModal, setShowCompleteModal] = useState(false);
 
   const [showWOTCCongratsModal, setShowWOTCCongratsModal] = useState(false);
+  const [showBackgroundCheckModal, setShowBackgroundCheckModal] = useState(false);
+  const [showRehabilitationModal, setShowRehabilitationModal] = useState(false);
 
   const [documents, setDocuments] = useState<Record<string, RequiredDocument>>({
     jobDescription: { type: "jobDescription", file: null, notes: "" },
@@ -776,23 +778,23 @@ export default function AssessmentEvaluate() {
           </div>
 
           <div className="space-y-4">
-            <p className="font-semibold">Your Right to File a Complaint:</p>
+            <p className="font-semibold">Your Right to Appeal This Decision:</p>
             <p>
-              If you believe your rights under Oklahoma's Ban-the-Box law have been violated during this job
-              application process, you have the right to file a complaint with the Oklahoma Department of Labor.
+              If you believe an error has been made in this decision or that the assessment was conducted incorrectly, 
+              you have the right to appeal this decision through the Oklahoma Department of Labor.
             </p>
-            <p>There are several ways to file a complaint:</p>
+            <p>To appeal this decision or request a review, you may:</p>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Contact the Oklahoma Department of Labor directly</li>
+              <li>Contact the Oklahoma Department of Labor directly to discuss your appeal</li>
               <li>
-                Visit the Oklahoma Department of Labor website at www.labor.ok.gov for complaint forms and procedures
+                Visit the Oklahoma Department of Labor website at www.labor.ok.gov for appeal forms and procedures
               </li>
               <li>
-                Call the Oklahoma Department of Labor at (405) 521-6100
+                Call the Oklahoma Department of Labor at (405) 521-6100 to speak with someone about your case
               </li>
             </ul>
             <p>
-              For more information about your rights under Oklahoma's Ban-the-Box law, contact the Oklahoma Department of Labor.
+              For assistance with appealing this decision or understanding your options, contact the Oklahoma Department of Labor.
             </p>
           </div>
         </div>
@@ -1003,6 +1005,13 @@ export default function AssessmentEvaluate() {
             <p className="text-muted-foreground">
               Review the following criteria to ensure only legally permissible information is considered.
             </p>
+            <Button
+              onClick={() => setShowBackgroundCheckModal(true)}
+              className="bg-cinnabar text-white hover:bg-cinnabar-600 transition font-poppins"
+            >
+              <FileText className="mr-2 h-4 w-4" />
+              View Full Background Check Report
+            </Button>
             <div className="space-y-6">
               {/* Checklist Item 1 */}
               <div className="flex items-center gap-4">
@@ -1126,7 +1135,12 @@ export default function AssessmentEvaluate() {
             <h2 className="text-2xl font-bold">Evidence of Rehabilitation</h2>
             <RadioGroup
               value={rehabilitation.hasEvidence === null ? "" : rehabilitation.hasEvidence.toString()}
-              onValueChange={(value) => setRehabilitation(prev => ({ ...prev, hasEvidence: value === "true" }))}
+              onValueChange={(value) => {
+                setRehabilitation(prev => ({ ...prev, hasEvidence: value === "true" }));
+                if (value === "false") {
+                  setShowRehabilitationModal(true);
+                }
+              }}
             >
               <div className="space-y-3">
                 <div className="flex items-center space-x-2">
@@ -1698,6 +1712,60 @@ export default function AssessmentEvaluate() {
           </DialogHeader>
           <div className="flex justify-end">
             <Button onClick={() => { setShowWOTCCongratsModal(false); router.push("/"); }}>
+              Close
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Background Check Modal */}
+      <Dialog open={showBackgroundCheckModal} onOpenChange={setShowBackgroundCheckModal}>
+        <DialogContent className="max-w-6xl h-[85vh] font-poppins">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">Background Check Report</DialogTitle>
+            <DialogDescription>
+              Full background check report for Jacobi Iverson
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 min-h-0">
+            <iframe 
+              src="/background-check-report.pdf"
+              className="w-full h-full border-0 rounded-lg"
+              title="Background Check Report"
+            />
+          </div>
+          <div className="flex justify-end pt-4">
+            <Button 
+              onClick={() => setShowBackgroundCheckModal(false)}
+              variant="outline"
+            >
+              Close
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Rehabilitation Evidence Modal */}
+      <Dialog open={showRehabilitationModal} onOpenChange={setShowRehabilitationModal}>
+        <DialogContent className="max-w-6xl h-[85vh] font-poppins">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold">Evidence of Rehabilitation, Employability, and Character</DialogTitle>
+            <DialogDescription>
+              Review evidence demonstrating the candidate's rehabilitation, employability, and character development
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 min-h-0">
+            <iframe 
+              src="/rehabilitation-guidelines.pdf"
+              className="w-full h-full border-0 rounded-lg"
+              title="Rehabilitation Evidence Guidelines"
+            />
+          </div>
+          <div className="flex justify-end pt-4">
+            <Button 
+              onClick={() => setShowRehabilitationModal(false)}
+              variant="outline"
+            >
               Close
             </Button>
           </div>
