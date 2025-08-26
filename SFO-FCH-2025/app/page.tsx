@@ -122,8 +122,8 @@ export default function Home() {
 					  </CardHeader>
 					  <CardContent className="space-y-4">
 					    <p className="text-gray35">
-					      Start a structured workflow to evaluate conviction history in
-					      compliance with Oklahoma Ban-the-Box requirements. This process will guide
+					      Start a structured workflow to evaluate conviction history with
+					      the guidance of Ban-the-Box best practices and policies. This process will guide
 					      you through:
 					    </p>
 					    {/* Steps Row (Icons + Arrows) */}
