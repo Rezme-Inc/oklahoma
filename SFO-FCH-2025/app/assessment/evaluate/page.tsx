@@ -224,71 +224,108 @@ export default function AssessmentEvaluate() {
   };
 
   const getLegalGuidance = () => {
+    // Updated with New Mexico SB 183 content
     switch (currentStep) {
       case 1:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4904 (c)</h3>
-            <p className="text-sm text-muted-foreground">
-              The Employer shall not require applicants or potential applicants for employment, or employees, to disclose, and shall not inquire into or discuss, their Conviction History or an Unresolved Arrest until after a conditional offer of employment. The Employer may not itself conduct or obtain from a third party a Background Check until after a conditional offer of employment.
-            </p>
+            <h3 className="font-semibold">NM STAT § 28-2-3.1 (2024)</h3>
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground mb-4">
+                If a private employer uses a written or electronic employment application, the employer shall not make an inquiry regarding an applicant's history of arrest or conviction on the employment application but may take into consideration an applicant's conviction after review of the applicant's application and upon discussion of employment with the applicant.
+              </p>
+              <div className="space-y-3">
+                <h4 className="text-sm font-medium mb-2">Key Requirements:</h4>
+                <ul className="text-sm text-muted-foreground space-y-2">
+                  <li>• <strong>No criminal history questions</strong> on initial employment applications</li>
+                  <li>• <strong>Convictions may be considered</strong> after reviewing the application</li>
+                  <li>• <strong>Discussion with applicant</strong> required before considering conviction history</li>
+                  <li>• <strong>Written or electronic applications</strong> are covered by this statute</li>
+                </ul>
+              </div>
+              <div className="mt-4 p-3 bg-muted rounded-lg">
+                <p className="text-xs text-muted-foreground italic">
+                  <strong>Note:</strong> Nothing in this section prohibits an employer from notifying the public or an applicant that the law or the employer's policy could disqualify an applicant who has a certain criminal history from employment in particular positions.
+                </p>
+              </div>
+            </div>
           </div>
         );
       case 2:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4904 subsections (a)(1)-(7)</h3>
+            <h3 className="font-semibold">NM SB 183 - SECTION 9: PROHIBITED CONSIDERATIONS</h3>
             <p className="text-sm text-muted-foreground mb-2">
-              Oklahoma's Ban-the-Box law prohibits covered employers from ever considering the following:
+              NM's Uniform Collateral Consequences of Conviction Act prohibits using the following as a basis for collateral consequences:
             </p>
             <ul className="text-sm text-muted-foreground space-y-2">
-              <li>• An arrest not leading to a conviction, except for unresolved arrests</li>
-              <li>• Participation in a diversion or deferral of judgment program</li>
-              <li>• A conviction that has been dismissed, expunged, otherwise invalidated, or inoperative</li>
-              <li>• A conviction in the juvenile justice system</li>
-              <li>• An offense other than a felony or misdemeanor, such as an infraction</li>
-              <li>• A conviction that is more than 7 years old (unless the position being considered supervises minors or dependent adults)</li>
-              <li>• A conviction for decriminalized conduct, including the non-commercial use and cultivation of cannabis</li>
+              <li>• <strong>Juvenile adjudications</strong> from any jurisdiction shall not be deemed convictions</li>
+              <li>• <strong>Reversed, overturned or vacated convictions</strong> by courts on grounds other than rehabilitation</li>
+              <li>• <strong>Expunged, sealed, annulled, set-aside or vacated convictions</strong> based on rehabilitation or good behavior</li>
+              <li>• <strong>Deferred adjudication or diversion programs</strong> that terminate without conviction</li>
+              <li>• <strong>Out-of-state misdemeanors</strong> cannot be deemed felonies in New Mexico</li>
+              <li>• <strong>Offenses lesser than misdemeanors</strong> from other jurisdictions</li>
+              <li>• <strong>Pardoned convictions</strong> have same effect as in the issuing jurisdiction</li>
             </ul>
+            <div className="mt-4 p-3 bg-muted rounded-lg">
+              <p className="text-xs text-muted-foreground italic">
+                Note: Relief or restoration of civil rights in other jurisdictions has the same effect in NM, except for consequences that could not be relieved under NM law.
+              </p>
+            </div>
           </div>
         );
       case 3:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">Section 4093 Definitions</h3>
+            <h3 className="font-semibold">NM SB 183 - SECTION 8: DECISION TO DISQUALIFY</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Directly-Related Conviction in the employment context shall mean that the conduct for which a person was convicted or that is the subject of an Unresolved Arrest has a direct and specific negative bearing on that person's ability to perform the duties or responsibilities necessarily related to the employment position. In determining whether the conviction or Unresolved Arrest is directly related to the employment position, the Employer shall consider whether the employment position offers the opportunity for the same or a similar offense to occur and whether circumstances leading to the conduct for which the person was convicted or that is the subject of an Unresolved Arrest will recur in the employment position.
+              In deciding whether to impose a disqualification, a decision-maker shall undertake an <strong>individualized assessment</strong> to determine whether the benefit or opportunity at issue should be denied the individual. In making that decision, the decision-maker may consider, <strong>if substantially related to the benefit or opportunity at issue</strong>, the particular facts and circumstances involved in the offense and the essential elements of the offense.
             </p>
-            <h3 className="font-semibold">SEC. 4904 (f)</h3>
-            <p className="text-sm text-muted-foreground">
-              In making an employment decision based on an applicant's or employee's Conviction History, an Employer shall conduct an individualized assessment, considering only Directly-Related Convictions, the time that has elapsed since the Conviction or Unresolved Arrest, and any evidence of inaccuracy or Evidence of Rehabilitation or Other Mitigating Factors.
-            </p>
+            <div className="space-y-3">
+              <h4 className="text-sm font-medium">Key Assessment Factors:</h4>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                <li>• Particular facts and circumstances of the offense</li>
+                <li>• Essential elements of the offense</li>
+                <li>• Substantial relationship to the benefit or opportunity</li>
+                <li>• Effect on third parties of granting the benefit</li>
+                <li>• Whether individual has been granted relief (order of limited relief)</li>
+              </ul>
+              <p className="text-sm text-muted-foreground italic">
+                Note: A conviction itself shall not be considered except as having established the elements of the offense.
+              </p>
+            </div>
           </div>
         );
       case 4:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4903. DEFINITIONS</h3>
+            <h3 className="font-semibold">NM SB 183 - UNIFORM COLLATERAL CONSEQUENCES OF CONVICTION ACT</h3>
             <div className="space-y-6">
               <div>
-                <h4 className="text-sm font-medium mb-2">Rehabilitation Evidence</h4>
+                <h4 className="text-sm font-medium mb-2">Section 8: Decision to Disqualify</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  In deciding whether to impose a disqualification, a decision-maker shall undertake an <strong>individualized assessment</strong> to determine whether the benefit or opportunity at issue should be denied the individual.
+                </p>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Satisfactory compliance with parole/probation terms</li>
-                  <li>• Post-conviction employer recommendations</li>
-                  <li>• Educational achievements or vocational training</li>
-                  <li>• Completion of/participation in rehabilitative treatment</li>
-                  <li>• Letters of recommendation from qualified observers</li>
-                  <li>• Age at time of conviction</li>
+                  <li>• Consider the particular facts and circumstances involved in the offense</li>
+                  <li>• Consider the essential elements of the offense</li>
+                  <li>• Consider the effect on third parties of granting the benefit or opportunity</li>
+                  <li>• Consider whether the individual has been granted relief such as an order of limited relief</li>
+                  <li>• A conviction itself shall not be considered except as having established the elements of the offense</li>
                 </ul>
               </div>
               
               <div>
-                <h4 className="text-sm font-medium mb-2">Voluntary Mitigating Factors</h4>
+                <h4 className="text-sm font-medium mb-2">Section 10: Order of Limited Relief</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  An individual convicted of an offense may petition for an order of limited relief from collateral sanctions related to <strong>employment, education, housing, public benefits or occupational licensing</strong>.
+                </p>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>• Coercive conditions preceding offense</li>
-                  <li>• History of intimate physical/emotional abuse</li>
-                  <li>• Untreated substance abuse</li>
-                  <li>• Untreated mental illness</li>
+                  <li>• Relief must materially assist in obtaining or maintaining employment, education, housing, public benefits or licensing</li>
+                  <li>• Individual must have substantial need for relief to live a law-abiding life</li>
+                  <li>• Granting relief must not pose unreasonable risk to public safety</li>
+                  <li>• Court considers criminal history, victim filings, prosecutor input, and other relevant evidence</li>
+                  <li>• Order may be issued as part of sentencing and specifies relief granted</li>
                 </ul>
               </div>
             </div>
@@ -297,25 +334,67 @@ export default function AssessmentEvaluate() {
       case 7:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4904 (h)</h3>
-            <p className="text-sm text-muted-foreground">
-              If, within seven days of the date that the notice described in subsection (g) is provided by the Employer to the applicant or employee, the applicant or employee gives the Employer notice, orally or in writing, of evidence of the inaccuracy of the item or items of Conviction History or any Evidence of Rehabilitation or Other Mitigating Factors, the Employer shall delay any Adverse Action for a reasonable period after receipt of the information and during that time shall reconsider the prospective Adverse Action in light of the information.
-            </p>
+            <h3 className="font-semibold">NM SB 183 - SECTIONS 13 & 14: RELIEF AND VICTIM RIGHTS</h3>
+            <div className="space-y-4">
+              <div>
+                <h4 className="text-sm font-medium mb-2">Section 13: Reliance on Order as Evidence of Due Care</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  In proceedings alleging negligence, an order of limited relief may be introduced as evidence of due care in hiring, retaining, licensing, or otherwise transacting business with the individual.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium mb-2">Section 14: Victim's Rights</h4>
+                <p className="text-sm text-muted-foreground">
+                  A victim of an offense may participate in proceedings for issuance of an order of limited relief in the same manner as at a sentencing proceeding pursuant to the Victims of Crime Act.
+                </p>
+              </div>
+              <div className="mt-4 p-3 bg-muted rounded-lg">
+                <p className="text-xs text-muted-foreground">
+                  <strong>Key Principle:</strong> Orders of limited relief balance public safety, victim rights, and opportunities for rehabilitation and reintegration.
+                </p>
+              </div>
+            </div>
           </div>
         );
       case 5:
         return (
           <div className="space-y-4">
-            <h3 className="font-semibold">SEC. 4904 (f), (g), (i)</h3>
-            <p className="text-sm text-muted-foreground">
-              In making an employment decision based on an applicant's or employee's Conviction History, an Employer shall conduct an individualized assessment, considering only Directly-Related Convictions, the time that has elapsed since the Conviction or Unresolved Arrest, and any evidence of inaccuracy or Evidence of Rehabilitation or Other Mitigating Factors.
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              If an Employer intends to base an Adverse Action on an item or items in the applicant or employee's Conviction History, prior to taking any Adverse Action the Employer shall provide the applicant or employee with a copy of the Background Check Report, if any, and shall notify the applicant or employee of the prospective Adverse Action and the items forming the basis for the prospective Adverse Action.
-            </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              Upon taking any final Adverse Action based upon the Conviction History of an applicant or employee, an Employer shall notify the applicant or employee of the final Adverse Action.
-            </p>
+            <h3 className="font-semibold">NM STAT § 28-2-4 (2024)</h3>
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground mb-4">
+                Businesses or professions may refuse to grant or renew or may suspend or revoke any public employment or license or other authority to engage in the public employment, trade, business or profession for specific causes.
+              </p>
+              <div className="space-y-3">
+                <h4 className="text-sm font-medium mb-2">Permitted Grounds for Denial/Revocation:</h4>
+                <div className="space-y-3">
+                  <div className="p-3 bg-muted rounded-lg">
+                    <h5 className="text-sm font-semibold mb-2 text-foreground">(1) Direct Relationship Standard</h5>
+                    <p className="text-sm text-muted-foreground">
+                      Where the applicant, employee or licensee has been <strong>convicted of a felony</strong> and the criminal conviction <strong>directly relates</strong> to the particular employment, trade, business or profession.
+                    </p>
+                  </div>
+                  <div className="p-3 bg-muted rounded-lg">
+                    <h5 className="text-sm font-semibold mb-2 text-foreground">(2) Child-Related Positions</h5>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      Where the applicant has been convicted of specific serious crimes and has applied for:
+                    </p>
+                    <ul className="text-sm text-muted-foreground space-y-1 ml-4">
+                      <li>• Teaching certificate</li>
+                      <li>• License to operate a child-care facility</li>  
+                      <li>• Employment at a child-care facility</li>
+                    </ul>
+                    <p className="text-sm text-muted-foreground mt-2">
+                      <strong>Covered crimes:</strong> homicide, kidnapping, human trafficking, trafficking in controlled substances, criminal sexual penetration or related sexual offenses, or child abuse <em>(regardless of rehabilitation)</em>.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="text-xs text-muted-foreground">
+                  <strong>Key Requirement:</strong> For standard employment, there must be a <strong>direct relationship</strong> between the felony conviction and the specific job duties or responsibilities.
+                </p>
+              </div>
+            </div>
           </div>
         );
       default:
