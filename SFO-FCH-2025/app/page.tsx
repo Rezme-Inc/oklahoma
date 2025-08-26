@@ -80,17 +80,11 @@ export default function Home() {
 								</div>
 								<div className="space-y-2">
 									<Button
-										asChild
 										variant="outline"
 										className="w-full border-cinnabar text-cinnabar hover:bg-cinnabar hover:text-white transition font-poppins"
+										onClick={() => router.push("/federal-contracts")}
 									>
-										<a
-											href="https://www.congress.gov/bill/116th-congress/senate-bill/387/text"
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											5 U.S. Code Chapter 92 Part III Subpart H
-										</a>
+										5 U.S. Code Chapter 92 Part III Subpart H
 									</Button>
 									<p className="text-xs text-gray-500 text-center px-2">
 										Federal law for companies with federal contracts.
